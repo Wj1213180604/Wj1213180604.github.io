@@ -3,17 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/11 | 逸仙于誓</title>
+  <title>float/position | 逸仙于誓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IT之路">
-<meta property="og:type" content="website">
-<meta property="og:title" content="逸仙于誓">
-<meta property="og:url" content="http://yoursite.com/archives/2015/11/index.html">
+  <meta name="description" content="float
+float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。清除浮动有三种方式：①给父级元素加上height（该方法必须精确的知道height）②在html中，该浮动元素的同级写上
+
+html：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="float/position">
+<meta property="og:url" content="http://yoursite.com/2015/11/26/float-position/index.html">
 <meta property="og:site_name" content="逸仙于誓">
-<meta property="og:description" content="IT之路">
+<meta property="og:description" content="float
+float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。清除浮动有三种方式：①给父级元素加上height（该方法必须精确的知道height）②在html中，该浮动元素的同级写上
+
+html：">
+<meta property="og:updated_time" content="2015-11-26T09:28:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逸仙于誓">
-<meta name="twitter:description" content="IT之路">
+<meta name="twitter:title" content="float/position">
+<meta name="twitter:description" content="float
+float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。清除浮动有三种方式：①给父级元素加上height（该方法必须精确的知道height）②在html中，该浮动元素的同级写上
+
+html：">
   
     <link rel="alternative" href="/atom.xml" title="逸仙于誓" type="application/atom+xml">
   
@@ -194,134 +204,114 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-float-position" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/11/26/float-position/" class="article-date">
+  	<time datetime="2015-11-26T09:12:15.000Z" itemprop="datePublished">2015-11-26</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      float/position
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/26/float-position/" class="archive-article-date">
-  	<time datetime="2015-11-26T09:12:15.000Z" itemprop="datePublished">11月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/26/float-position/">float/position</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="float">float</h1><blockquote>
+<p>float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。<br>float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。<br>清除浮动有三种方式：<br>①给父级元素加上height（该方法必须精确的知道height）<br>②在html中，该浮动元素的同级写上</p>
+</blockquote>
+<pre><code>html：
+&lt;<span class="operator">div</span> class = <span class="string">'clearfix'</span>&gt;&lt;/<span class="operator">div</span>&gt;
+css：
+.clearfix{
+    <span class="built_in">clear</span>:left<span class="comment">;//此时假设浮动的元素设置float:left;</span>
+}
+</code></pre><p>③在父级增加overflow:hidden;</p>
+<pre><code><span class="attribute">overflow</span>:hidden;<span class="comment">//超出部分被剪切还可以去掉滚动条，如：</span>
+<span class="comment">//overflow-X:scroll;</span>
+<span class="comment">//overflow-Y:hidden;//此时只有x轴滚动条</span>
+<span class="attribute">overflow</span>:visible;<span class="comment">//overflow的默认值，内容不会被修剪，呈现在元素之外</span>
+<span class="attribute">overflow</span>:scroll;<span class="comment">//当内容高度、宽度超出父级时，出现滚动条。但是滚动条样式是系统自带的，不可靠。</span>
+<span class="attribute">overflow</span>:auto;
+</code></pre><h1 id="position">position</h1>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/26/优先级/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">选择器及其优先级</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/26/优先级/" class="archive-article-date">
-  	<time datetime="2015-11-26T07:39:14.000Z" itemprop="datePublished">11月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/26/优先级/">选择器及其优先级</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/25/基本标签及其默认值/" class="archive-article-date">
-  	<time datetime="2015-11-25T11:37:17.000Z" itemprop="datePublished">11月 25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/25/基本标签及其默认值/">基本标签默认值及如何使div垂直居中</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/新人见解，欢迎指出不足之处/">新人见解，欢迎指出不足之处</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-不忘初心 方得始终">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/25/方得始终/" class="archive-article-date">
-  	<time datetime="2015-11-25T08:08:29.000Z" itemprop="datePublished">11月 25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/25/方得始终/">不忘初心 方得始终</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="float-position" data-title="float/position" data-url="http://yoursite.com/2015/11/26/float-position/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
 
 </div>
       <footer id="footer">
@@ -347,8 +337,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
