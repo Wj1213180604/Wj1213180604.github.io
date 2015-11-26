@@ -224,13 +224,45 @@
       
         <h1 id="标签分类"><strong>标签分类</strong></h1><blockquote>
 <p>标签可以分为单标签和双标签。也可以分为块级标签、行级标签和无行块之分的标签。有人会问，也有表格标签、列表标签等，表格标签以及列表标签这类的标签具有块级标签的属性。<br>   我将已经接触到的标签做这样的分类：</p>
-<ul>
-<li>块级标签：body、div、h1～h6、p、form、ol、ul、dl、table</li>
-<li>行级标签：a、span、img</li>
-<li>无行块之分：br<h1 id="默认值"><strong>默认值</strong></h1>下面就来说一下这些标签的默认值，这些默认值有助于我们写reset样式表：<br>1）body可以设置边框、背景。设置边框时，可设width、height;设置背景时，背景撑满全屏，此时可修改body内容，但不会影响背景。有默认margin:8px;<br>2）div继承父级width；无默认高度，内容撑开高度；默认样式：display:block;<br>3）h1～h6继承父级width；有margin-top、margin-bottom；字体加粗：font-weight:blod/bloder;<br>4）p标签很简单，只有一个默认的margin；<br>5）ol、ul、dl默认有margin、padding、list-style-type；<br>6）table是一个表格标签，默认display:table；单元格与单元格是分开的，即border-collapse：separate;单元格之间的间距是border-spacing:2px;border-color:gray;行头th,字体加粗、上下左右居中。<br>此时补充几点：①border-collapse有两个属性值，collapse/separate。collapse是指两个单元格合用同一条边，separate是指单元格不合并，每个单元格之间都有间隙。那么在这种情况下，border-spacing就有了用武之地。border-spacing:2px;或者border-spacing:2px  3px;一个值代表了上下左右都是2px，两个值分别代表了左右是2px，上下是3px，这一点与margin、padding的TRBL法则不同。<br>②在其他有文本内容的标签中text-align:left/center/right负责使文本左右居中，而在table中vertical-align:top/middle/bottom负责使table中的文本内容垂直居中，vertical-align属性只有这几个值，不可以使用px单位，并且不可以对div使用，那么，如果我想使div这个层垂直居中，该怎么办呢？<h4 id="如何使一个div层垂直居中"><strong>如何使一个div层垂直居中</strong></h4>1）当width、height的单位是%的时候，width是按照父级标签的宽度比，height是按照父级标签的高度比。margin、padding的百分比是按照父级的宽度比。举例：margin:50% 0px 0px 0px;50%的换算是按照父级标签width值的50%。<br>所以，要让div垂直居中，可以设<br>position:absolute;<br>top:50%;<br>margin-top:-300px;    //此时作div的height为600px;<br>2）table有一个属性值叫做display:table-cell;这是表格单元格，可以用来设置垂直居中。在该div的css样式表中加入display:table-cell;vertical-align:middle;<br> <br><br>7）a标签有默认颜色、underline、内容撑开宽度；<br>提到a标签，不禁会想到lovehate法则，这个法则是针对a标签的四个状态的：link（当前锚点没有访问过、为触发过的状态）、visited（访问过后的样式，一般字体颜色等发生变化）、hover（鼠标悬浮于a标签上的样式）、active（鼠标点击未松开的样式）；a标签的默认下划线如果不想要，可以对它设置：text-decoration:none;<br>这里我总结了两点：①当a为行级时，margin可设置左右，可为负数；padding可用上右下左，不可为负数；②当a为块级时，margin可设置上右下左，可为负数；padding可用上右下左，不可为负数；<br>8）img标签是一个比较特殊的标签，它属于行级标签，但又可以设置宽高。<br>在某些浏览器中图片加载不出来时会有边框。想避免这种情况，可以设置：border:none;<br>既然提到了border，那就也说一下它的默认值吧！border-color:默认与字体一种颜色；border-width:默认3px、不可以为负数；border-style:solid。                     </li>
-</ul>
 </blockquote>
-
+<pre><code>块级标签：body、div、h1～h6、p、form、ol、ul、dl、<span class="tag">table</span>
+行级标签：a、span、<span class="tag">img</span>
+无行块之分：br
+</code></pre><h1 id="默认值"><strong>默认值</strong></h1><blockquote>
+<pre><code>下面就来说一下这些标签的默认值，这些默认值有助于我们写<span class="keyword">reset</span>样式表：
+</code></pre><p>   1）body可以设置边框、背景。设置边框时，可设width、height;设置背景时，背景撑满全屏，此时可修改body内容，但不会影响背景。有默认margin:8px;<br>  2）div继承父级width；无默认高度，内容撑开高度；默认样式：display:block;<br>  3）h1～h6继承父级width；有margin-top、margin-bottom；字体加粗：font-weight:blod/bloder;<br>  4）p标签很简单，只有一个默认的margin；<br>  5）ol、ul、dl默认有margin、padding、list-style-type；<br>  6）table是一个表格标签，默认display:table;</p>
+</blockquote>
+<pre><code><span class="attribute">border-collapse</span>:separate;<span class="comment">//单元格与单元格是分开的</span>
+<span class="attribute">border-spacing</span>:<span class="number">2px</span>;<span class="comment">//单元格之间的间距</span>
+<span class="attribute">border-color</span>:gray;
+</code></pre><blockquote>
+<p>行头th,字体加粗、上下左右居中。<br>   此时补充几点：①border-collapse有两个属性值，collapse/separate。collapse是指两个单元格合用同一条边，separate是指单元格不合并，每个单元格之间都有间隙。那么在这种情况下，border-spacing就有了用武之地。</p>
+</blockquote>
+<pre><code><span class="attribute">border-spacing</span>:<span class="number">2px</span>;<span class="comment">//一个值代表了上下左右都是2px，</span>
+<span class="attribute">border-spacing</span>:<span class="number">2px</span>  <span class="number">3px</span>;<span class="comment">//两个值分别代表了左右是2px，上下是3px，这一点与margin、padding的TRBL法则不同。</span>
+</code></pre><blockquote>
+<p>   ②在其他有文本内容的标签中text-align:left/center/right负责使文本左右居中，而在table中vertical-align:top/middle/bottom负责使table中的文本内容垂直居中，vertical-align属性只有这几个值，不可以使用px单位，并且不可以对div使用，那么，如果我想使div这个层垂直居中，该怎么办呢？</p>
+<h4 id="如何使一个div层垂直居中"><strong>如何使一个div层垂直居中</strong></h4><p>1）当width、height的单位是%的时候，width是按照父级标签的宽度比，height是按照父级标签的高度比。margin、padding的百分比是按照父级的宽度比。举例：margin:50% 0px 0px 0px;50%的换算是按照父级标签width值的50%。<br>所以，要让div垂直居中，可以设</p>
+</blockquote>
+<pre><code><span class="attribute">position</span>:absolute;
+<span class="attribute">top</span>:<span class="number">50%</span>;
+<span class="attribute">margin-top</span>:-<span class="number">300px</span>;    <span class="comment">//此时作div的height为600px;</span>
+</code></pre><blockquote>
+<p>2）table有一个属性值叫做display:table-cell;这是表格单元格，可以用来设置垂直居中。在该div的css样式表中</p>
+</blockquote>
+<pre><code><span class="attribute">display</span>:table-cell;
+<span class="attribute">vertical-align</span>:middle;
+</code></pre><blockquote>
+<p>7）a标签有默认颜色、underline、内容撑开宽度；<br>提到a标签，不禁会想到lovehate法则，这个法则是针对a标签的四个状态的：link（当前锚点没有访问过、为触发过的状态）、visited（访问过后的样式，一般字体颜色等发生变化）、hover（鼠标悬浮于a标签上的样式）、active（鼠标点击未松开的样式）；a标签的默认下划线如果不想要，可以对它设置：</p>
+</blockquote>
+<pre><code><span class="attribute">text-decoration</span>:none;
+</code></pre><blockquote>
+<p>这里我总结了两点：①当a为行级时，margin可设置左右，可为负数；padding可用上右下左，不可为负数；②当a为块级时，margin可设置上右下左，可为负数；padding可用上右下左，不可为负数；<br>8）img标签是一个比较特殊的标签，它属于行级标签，但又可以设置宽高。<br>在某些浏览器中图片加载不出来时会有边框。想避免这种情况，可以设置：border:none;<br>既然提到了border，那就也说一下它的默认值吧！</p>
+</blockquote>
+<pre><code><span class="attribute">border-color</span>:;<span class="comment">//默认与字体一种颜色</span>
+<span class="attribute">border-width</span>:;<span class="comment">//默认3px、不可以为负数</span>
+<span class="attribute">border-style</span>:solid;                    
+</code></pre>
       
     </div>
     
