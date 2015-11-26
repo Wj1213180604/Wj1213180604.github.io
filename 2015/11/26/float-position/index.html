@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>float/position | 逸仙于誓</title>
+  <title>float/position(用于布局) | 逸仙于誓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="float
 float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。清除浮动有三种方式：①给父级元素加上height（该方法必须精确的知道height）②在html中，该浮动元素的同级写上
 
 html：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="float/position">
+<meta property="og:title" content="float/position(用于布局)">
 <meta property="og:url" content="http://yoursite.com/2015/11/26/float-position/index.html">
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="float
 float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。清除浮动有三种方式：①给父级元素加上height（该方法必须精确的知道height）②在html中，该浮动元素的同级写上
 
 html：">
-<meta property="og:updated_time" content="2015-11-26T10:03:43.000Z">
+<meta property="og:updated_time" content="2015-11-26T11:27:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="float/position">
+<meta name="twitter:title" content="float/position(用于布局)">
 <meta name="twitter:description" content="float
 float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。清除浮动有三种方式：①给父级元素加上height（该方法必须精确的知道height）②在html中，该浮动元素的同级写上
 
@@ -225,7 +225,7 @@ html：">
         
   
     <h1 class="article-title" itemprop="name">
-      float/position
+      float/position(用于布局)
     </h1>
   
 
@@ -250,7 +250,9 @@ css：
 .clearfix{
     <span class="built_in">clear</span>:left<span class="comment">;//此时假设浮动的元素设置float:left;</span>
 }
-</code></pre><p>③在父级增加overflow:hidden;</p>
+</code></pre><blockquote>
+<p>③在父级增加overflow:hidden;</p>
+</blockquote>
 <pre><code><span class="attribute">overflow</span>:hidden;<span class="comment">//超出部分被剪切还可以去掉滚动条，如：</span>
 <span class="comment">//overflow-X:scroll;</span>
 <span class="comment">//overflow-Y:hidden;//此时只有x轴滚动条</span>
@@ -258,9 +260,37 @@ css：
 <span class="attribute">overflow</span>:scroll;<span class="comment">//当内容高度、宽度超出父级时，出现滚动条。但是滚动条样式是系统自带的，不可靠。</span>
 <span class="attribute">overflow</span>:auto;
 </code></pre><blockquote>
-<p>提到overflow:hidden;具有隐藏功能，visibility</p>
-<h1 id="position">position</h1></blockquote>
-
+<p>提到overflow:hidden;具有隐藏功能，visibility也是一个用来设置隐藏的方法。</p>
+</blockquote>
+<pre><code><span class="attribute">visibility</span>:visible;<span class="comment">//默认值，可见的</span>
+<span class="attribute">visibility</span>:hidden;<span class="comment">//不显示内容，但标签所占的区域还在，与display:none;有区别。</span>
+<span class="attribute">visibility</span>:collapse;<span class="comment">//用于表格中时隐藏一行，但区域还在；用于其他地方时，作用同hidden。</span>
+</code></pre><h1 id="position">position</h1><blockquote>
+<p>position有三个属性值：relative(相对定位)、absolute(绝对定位)、fixed(固定定位)</p>
+</blockquote>
+<pre><code><span class="attribute">position</span>:relative;<span class="comment">//相对自身当前的位置移动，可以对块、行级标签使用，不会改变标签属性。</span>
+<span class="attribute">left</span>:;
+<span class="attribute">right</span>:;
+<span class="attribute">top</span>:;
+<span class="attribute">bottom</span>:;
+</code></pre><blockquote>
+<p>如果没有父级标签设置position:relative;则当前标签是以body的可是区域(<strong>注意</strong>：不是body的宽高区域)为起点。<br>如果有父级标签设置position:relative;则当前标签是以父级标签位置为起点。</p>
+</blockquote>
+<pre><code><span class="attribute">position</span>:absolute;<span class="comment">//此时该标签脱离文档流，改变了标签的属性，使之类似于inline-block。</span>
+<span class="attribute">left</span>:;<span class="comment">//此时可以设置宽高的百分比</span>
+<span class="attribute">right</span>:;
+<span class="attribute">top</span>:;
+<span class="attribute">bottom</span>:;
+</code></pre><blockquote>
+<p>固定定位，一般用于页面上类似于广告栏,不随页面滚动而滚动。</p>
+</blockquote>
+<pre><code><span class="attribute">position</span>:fixed;
+</code></pre><blockquote>
+<p>z-index只有在有position属性的时候才有效，表示当前标签的层级，取值为数字，可以为负数。默认是从上往下层级递加。</p>
+</blockquote>
+<pre><code><span class="attribute">position</span>:relative;<span class="comment">//relative、absolute、fixed都可以</span>
+<span class="attribute">z-index</span>:<span class="number">999</span>;<span class="comment">//不可以加px等单位</span>
+</code></pre>
       
     </div>
     
@@ -300,7 +330,7 @@ css：
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="float-position" data-title="float/position" data-url="http://yoursite.com/2015/11/26/float-position/"></div>
+	<div class="ds-thread" data-thread-key="float-position" data-title="float/position(用于布局)" data-url="http://yoursite.com/2015/11/26/float-position/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
