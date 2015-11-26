@@ -227,55 +227,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="float">float</h1><blockquote>
-<p>float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。<br>float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。<br>清除浮动有三种方式：<br>①给父级元素加上height（该方法必须精确的知道height）<br>②在html中，该浮动元素的同级写上</p>
-</blockquote>
-<pre><code>html：
-&lt;<span class="operator">div</span> class = <span class="string">'clearfix'</span>&gt;&lt;/<span class="operator">div</span>&gt;
-css：
-.clearfix{
-    <span class="built_in">clear</span>:left<span class="comment">;//此时假设浮动的元素设置float:left;</span>
-}
-</code></pre><blockquote>
-<p>③在父级增加overflow:hidden;</p>
-</blockquote>
-<pre><code><span class="attribute">overflow</span>:hidden;<span class="comment">//超出部分被剪切还可以去掉滚动条，如：</span>
-<span class="comment">//overflow-X:scroll;</span>
-<span class="comment">//overflow-Y:hidden;//此时只有x轴滚动条</span>
-<span class="attribute">overflow</span>:visible;<span class="comment">//overflow的默认值，内容不会被修剪，呈现在元素之外</span>
-<span class="attribute">overflow</span>:scroll;<span class="comment">//当内容高度、宽度超出父级时，出现滚动条。但是滚动条样式是系统自带的，不可靠。</span>
-<span class="attribute">overflow</span>:auto;
-</code></pre><blockquote>
-<p>提到overflow:hidden;具有隐藏功能，visibility也是一个用来设置隐藏的方法。</p>
-</blockquote>
-<pre><code><span class="attribute">visibility</span>:visible;<span class="comment">//默认值，可见的</span>
-<span class="attribute">visibility</span>:hidden;<span class="comment">//不显示内容，但标签所占的区域还在，与display:none;有区别。</span>
-<span class="attribute">visibility</span>:collapse;<span class="comment">//用于表格中时隐藏一行，但区域还在；用于其他地方时，作用同hidden。</span>
-</code></pre><h1 id="position">position</h1><blockquote>
-<p>position有三个属性值：relative(相对定位)、absolute(绝对定位)、fixed(固定定位)</p>
-</blockquote>
-<pre><code><span class="attribute">position</span>:relative;<span class="comment">//相对自身当前的位置移动，可以对块、行级标签使用，不会改变标签属性。</span>
-<span class="attribute">left</span>:;
-<span class="attribute">right</span>:;
-<span class="attribute">top</span>:;
-<span class="attribute">bottom</span>:;
-</code></pre><blockquote>
-<p>如果没有父级标签设置position:relative;则当前标签是以body的可是区域(<strong>注意</strong>：不是body的宽高区域)为起点。<br>如果有父级标签设置position:relative;则当前标签是以父级标签位置为起点。</p>
-</blockquote>
-<pre><code><span class="attribute">position</span>:absolute;<span class="comment">//此时该标签脱离文档流，改变了标签的属性，使之类似于inline-block。</span>
-<span class="attribute">left</span>:;<span class="comment">//此时可以设置宽高的百分比</span>
-<span class="attribute">right</span>:;
-<span class="attribute">top</span>:;
-<span class="attribute">bottom</span>:;
-</code></pre><blockquote>
-<p>固定定位，一般用于页面上类似于广告栏,不随页面滚动而滚动。</p>
-</blockquote>
-<pre><code><span class="attribute">position</span>:fixed;
-</code></pre><blockquote>
-<p>z-index只有在有position属性的时候才有效，表示当前标签的层级，取值为数字，可以为负数。默认是从上往下层级递加。</p>
-</blockquote>
-<pre><code><span class="attribute">position</span>:relative;<span class="comment">//relative、absolute、fixed都可以</span>
-<span class="attribute">z-index</span>:<span class="number">999</span>;<span class="comment">//不可以加px等单位</span>
-</code></pre>
+<p>float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。<br>float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。<br>
       
     </div>
     
@@ -284,6 +236,10 @@ css：
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/26/float-position/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -326,50 +282,7 @@ css：
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="选择器"><strong>选择器</strong></h1><blockquote>
-<p><strong>标签选择器</strong>：直接作用于选择的标签元素，是一个集合。</p>
-</blockquote>
-<pre><code><span class="tag">div</span><span class="rules">{}</span>
-<span class="tag">span</span><span class="rules">{}</span>
-...
-</code></pre><blockquote>
-<p><strong>ID选择器</strong>：直接作用于该名称的标签元素，名称是唯一的，标签也是唯一的，只对该名称的标签有效。(少用)</p>
-</blockquote>
-<pre><code><span class="id">#ex</span><span class="rules">{}</span>
-<span class="id">#eg</span><span class="rules">{}</span>
-</code></pre><blockquote>
-<p><strong>父子选择器</strong>也叫派生选择器、层级选择器。标签之间用空格隔开。</p>
-</blockquote>
-<pre><code><span class="operator">div</span> <span class="operator">a</span>{}
-</code></pre><blockquote>
-<p><strong>类选择器</strong>：class的命名是可以重复的，也可以一个标签有许多的class名称。如class = “name sex age”</p>
-</blockquote>
-<pre><code><span class="class">.name</span><span class="rules">{}</span>
-</code></pre><blockquote>
-<p><strong>群组选择器</strong>：标签之间用’,’隔开，无序。</p>
-</blockquote>
-<pre><code><span class="tag">body</span>,<span class="id">#div1</span>,<span class="class">.lianxi</span><span class="rules">{}</span>
-</code></pre><blockquote>
-<p><strong>通配选择器</strong>：通常用来清除一些默认属性如：margin:0;(慎用)</p>
-</blockquote>
-<pre><code>*<span class="rules">{}</span>
-</code></pre><h1 id="优先级"><strong>优先级</strong></h1><blockquote>
-<p>css的法则是：同等优先级时，后面的样式覆盖前面的样式。</p>
-</blockquote>
-<pre><code>可以形象化优先级：标签：<span class="number">1</span>
-                 ID：<span class="number">1000</span> <span class="comment">//永远比标签和类的优先级别高</span>
-               类(<span class="keyword">class</span>)：<span class="number">100</span>
-</code></pre><blockquote>
-<p>对于不同优先级时，首先行级优先级是高于ID优先级的。</p>
-</blockquote>
-<h1 id="总结一下"><strong>总结一下</strong></h1><pre><code>通配选择器 &lt; 标签选择器 &lt; 类选择器 &lt; ID选择器 &lt; 层选择器 &lt; 群选择器
-</code></pre><blockquote>
-<p>但是有一个方法叫做important，用于提高权重</p>
-</blockquote>
-<pre><code><span class="attribute">color</span><span class="value">:pink<span class="important">!important</span>;</span>
-</code></pre><blockquote>
-<p>important的优先级别比行间样式还要高，是最高的，但不建议使用。</p>
-</blockquote>
-
+<p><strong>标签选择器</strong>：直接作用于选择的标签元素，是一个集合。<br>
       
     </div>
     
@@ -378,6 +291,10 @@ css：
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/26/优先级/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -420,45 +337,7 @@ css：
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="标签分类"><strong>标签分类</strong></h1><blockquote>
-<p>标签可以分为单标签和双标签。也可以分为块级标签、行级标签和无行块之分的标签。有人会问，也有表格标签、列表标签等，表格标签以及列表标签这类的标签具有块级标签的属性。<br>我将已经接触到的标签做这样的分类：</p>
-</blockquote>
-<pre><code>块级标签：body、div、h1～h6、p、form、ol、ul、dl、<span class="tag">table</span>
-行级标签：a、span、<span class="tag">img</span>
-无行块之分：br
-</code></pre><h1 id="默认值"><strong>默认值</strong></h1><blockquote>
-<p>下面就来说一下这些标签的默认值，这些默认值有助于我们写reset样式表：<br>   1）body可以设置边框、背景。设置边框时，可设width、height;设置背景时，背景撑满全屏，此时可修改body内容，但不会影响背景。有默认margin:8px;<br>  2）div继承父级width；无默认高度，内容撑开高度；默认样式：display:block;<br>  3）h1～h6继承父级width；有margin-top、margin-bottom；字体加粗：font-weight:blod/bloder;<br>  4）p标签很简单，只有一个默认的margin；<br>  5）ol、ul、dl默认有margin、padding、list-style-type；<br>  6）table是一个表格标签，默认display:table;</p>
-</blockquote>
-<pre><code><span class="attribute">border-collapse</span>:separate;<span class="comment">//单元格与单元格是分开的</span>
-<span class="attribute">border-spacing</span>:<span class="number">2px</span>;<span class="comment">//单元格之间的间距</span>
-<span class="attribute">border-color</span>:gray;
-</code></pre><blockquote>
-<p>行头th,字体加粗、上下左右居中。<br>   此时补充几点：①border-collapse有两个属性值，collapse/separate。collapse是指两个单元格合用同一条边，separate是指单元格不合并，每个单元格之间都有间隙。那么在这种情况下，border-spacing就有了用武之地。</p>
-</blockquote>
-<pre><code><span class="attribute">border-spacing</span>:<span class="number">2px</span>;<span class="comment">//一个值代表了上下左右都是2px，</span>
-<span class="attribute">border-spacing</span>:<span class="number">2px</span>  <span class="number">3px</span>;<span class="comment">//两个值分别代表了左右是2px，上下是3px，这一点与margin、padding的TRBL法则不同。</span>
-</code></pre><blockquote>
-<p>   ②在其他有文本内容的标签中text-align:left/center/right负责使文本左右居中，而在table中vertical-align:top/middle/bottom负责使table中的文本内容垂直居中，vertical-align属性只有这几个值，不可以使用px单位，并且不可以对div使用，那么，如果我想使div这个层垂直居中，该怎么办呢？</p>
-<h4 id="如何使一个div层垂直居中"><strong>如何使一个div层垂直居中</strong></h4><p>1）当width、height的单位是%的时候，width是按照父级标签的宽度比，height是按照父级标签的高度比。margin、padding的百分比是按照父级的宽度比。举例：margin:50% 0px 0px 0px;50%的换算是按照父级标签width值的50%。<br>所以，要让div垂直居中，可以设</p>
-</blockquote>
-<pre><code><span class="attribute">position</span>:absolute;
-<span class="attribute">top</span>:<span class="number">50%</span>;
-<span class="attribute">margin-top</span>:-<span class="number">300px</span>;    <span class="comment">//此时作div的height为600px;</span>
-</code></pre><blockquote>
-<p>2）table有一个属性值叫做display:table-cell;这是表格单元格，可以用来设置垂直居中。在该div的css样式表中</p>
-</blockquote>
-<pre><code><span class="attribute">display</span>:table-cell;
-<span class="attribute">vertical-align</span>:middle;
-</code></pre><blockquote>
-<p>7）a标签有默认颜色、underline、内容撑开宽度；<br>提到a标签，不禁会想到lovehate法则，这个法则是针对a标签的四个状态的：link（当前锚点没有访问过、为触发过的状态）、visited（访问过后的样式，一般字体颜色等发生变化）、hover（鼠标悬浮于a标签上的样式）、active（鼠标点击未松开的样式）；a标签的默认下划线如果不想要，可以对它设置：</p>
-</blockquote>
-<pre><code><span class="attribute">text-decoration</span>:none;
-</code></pre><blockquote>
-<p>这里我总结了两点：①当a为行级时，margin可设置左右，可为负数；padding可用上右下左，不可为负数；②当a为块级时，margin可设置上右下左，可为负数；padding可用上右下左，不可为负数；<br>8）img标签是一个比较特殊的标签，它属于行级标签，但又可以设置宽高。<br>在某些浏览器中图片加载不出来时会有边框。想避免这种情况，可以设置：border:none;<br>既然提到了border，那就也说一下它的默认值吧！</p>
-</blockquote>
-<pre><code><span class="attribute">border-color</span>:;<span class="comment">//默认与字体一种颜色</span>
-<span class="attribute">border-width</span>:;<span class="comment">//默认3px、不可以为负数</span>
-<span class="attribute">border-style</span>:solid;                    
-</code></pre>
+<p>标签可以分为单标签和双标签。也可以分为块级标签、行级标签和无行块之分的标签。有人会问，也有表格标签、列表标签等，表格标签以及列表标签这类的标签具有块级标签的属性。<br>
       
     </div>
     
@@ -471,6 +350,10 @@ css：
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/25/基本标签及其默认值/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
