@@ -200,6 +200,139 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JS作用域与预解析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/27/JS作用域与预解析/" class="article-date">
+  	<time datetime="2015-11-27T12:45:32.000Z" itemprop="datePublished">2015-11-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/27/JS作用域与预解析/">JS作用域与预解析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。函数总共有3个类型。</p>
+<p>函数可以分为声明函数、函数表达式、匿名函数。</p>
+</blockquote>
+<ul>
+<li><p>声明函数:是用function关键字+函数名声明的函数</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">text1</span><span class="params">()</span></span>{
+    <span class="comment">//do something</span>
+}
+</code></pre></li>
+<li><p>函数表达式：是用function关键字声明，再赋给一个变量的函数</p>
+<pre><code><span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="comment">//do something</span>
+}
+</code></pre></li>
+<li><p>匿名函数：是用function关键字声明，但没有函数名。它可以赋给变量、事件，也可以起到一个保护变量的作用。比如说，这里第一层function将每一次for循环中的i值都记录下来，起到保护作用。</p>
+<pre><code><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="comment">//do something</span>
+}
+
+<span class="comment">//保护变量的作用举例</span>
+<span class="keyword">var</span> i;
+<span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;<span class="number">10</span>;i++){
+    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>{
+        <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{
+             <span class="built_in">console</span>.log(i);
+         }
+         test2();
+     })(i);
+ }
+</code></pre></li>
+</ul>
+<blockquote>
+<p>那么，匿名函数可以有哪些使之可以直接通过 ( ); 调用立即执行呢？</p>
+</blockquote>
+<ul>
+<li><p>在匿名函数的外面需要套一层()。注意：此方法函数声明不可以使用。</p>
+</li>
+<li><p>在匿名函数的前面加上‘+’、‘-’、‘!’、‘return’，使之变成函数表达式。</p>
+</li>
+</ul>
+<blockquote>
+<p>那么浏览器是如何解析JS的呢？<br>浏览器在解析JS之前有两个准备工作：</p>
+</blockquote>
+<pre><code><span class="number">1</span>、把变量、函数表达式的声明提升到当前作用域的最顶端；
+<span class="number">2</span>、把函数赋值；
+</code></pre><blockquote>
+<p>例如：</p>
+</blockquote>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test3</span><span class="params">()</span></span>{
+    <span class="keyword">var</span> x = <span class="number">10</span>;
+    <span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="keyword">var</span> j = <span class="number">20</span>;
+    }
+}
+</code></pre><blockquote>
+<p>这里浏览器在解析之前做的工作相当于：</p>
+</blockquote>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test4</span><span class="params">()</span></span>{
+    <span class="keyword">var</span> x,i;<span class="comment">//将声明提到作用域的最前端</span>
+    x = <span class="number">10</span>;
+    i = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+        <span class="keyword">var</span> j; 
+        j = <span class="number">20</span>;
+    }
+}
+</code></pre><blockquote>
+<p>这里不知道有没有人会有疑惑，作用域到底是什么？<br>之前学到过全局变量和局部变量。按照我的理解，在JS中，全局变量有两种情况：</p>
+</blockquote>
+<ul>
+<li>定义在函数外面的变量；</li>
+<li>在定义时没有声明，直接是‘i = 10;’这种情况，此时不管该定义是否在函数内外，都是全局变量。</li>
+</ul>
+<blockquote>
+<p>顾名思义，局部变量指的就是在函数内部的申明了。</p>
+<p>所以，函数的作用域指的就是{}之内的区域，要注意的是，在JS中，只有函数才有局部作用域。</p>
+<p>这里做以下几点总结：</p>
+</blockquote>
+<ul>
+<li>全局变量可以在任何地方访问；</li>
+<li>函数内的变量，对函数外的变量是不可见的；</li>
+<li>函数内部可以访问外部函数的变量；</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-float-position" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
