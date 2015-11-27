@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。函数总共有3个类型。
 函数可以分为声明函数、函数表达式、匿名函数。">
-<meta property="og:updated_time" content="2015-11-27T13:44:23.000Z">
+<meta property="og:updated_time" content="2015-11-27T13:49:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS作用域和预解析">
 <meta name="twitter:description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。函数总共有3个类型。
@@ -241,37 +241,41 @@
 </blockquote>
 <a id="more"></a>
 <ul>
-<li><p>声明函数:是用function关键字+函数名声明的函数</p>
-<p>  function text1(){</p>
-<pre><code><span class="comment">//do something</span>
-</code></pre><p>  }</p>
-</li>
-<li><p>函数表达式：是用function关键字声明，再赋给一个变量的函数</p>
-<p>  var i = function(){</p>
-<pre><code><span class="comment">//do something</span>
-</code></pre><p>  }</p>
-</li>
-<li><p>匿名函数：是用function关键字声明，但没有函数名。它可以赋给变量、事件，也可以起到一个保护变量的作用。比如说，这里第一层function将每一次for循环中的i值都记录下来，起到保护作用。</p>
-<p>  function(){</p>
-<pre><code><span class="comment">//do something</span>
-</code></pre><p>  }</p>
-<p>  //保护变量的作用举例<br>  var i;<br>  for(i = 0; i&lt;10;i++){</p>
-<pre><code><span class="list">(<span class="keyword">function</span><span class="list">(<span class="keyword">i</span>)</span><span class="collection">{
-    function test2<span class="list">()</span><span class="collection">{
-         console.log<span class="list">(<span class="keyword">i</span>)</span><span class="comment">;</span>
-     }</span>
-     test2<span class="list">()</span><span class="comment">;</span>
- }</span>)</span><span class="list">(<span class="keyword">i</span>)</span><span class="comment">;</span>
-</code></pre><p>  }</p>
-</li>
+<li>①声明函数:是用function关键字+函数名声明的函数</li>
 </ul>
-<blockquote>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">text1</span><span class="params">()</span></span>{
+    <span class="comment">//do something</span>
+    }
+</code></pre><ul>
+<li>②函数表达式：是用function关键字声明，再赋给一个变量的函数</li>
+</ul>
+<pre><code><span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="comment">//do something</span>
+}
+</code></pre><ul>
+<li>③匿名函数：是用function关键字声明，但没有函数名。它可以赋给变量、事件，也可以起到一个保护变量的作用。比如说，这里第一层function将每一次for循环中的i值都记录下来，起到保护作用。</li>
+</ul>
+<pre><code><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="comment">//do something</span>
+}
+
+<span class="comment">//保护变量的作用举例</span>
+<span class="keyword">var</span> i;
+<span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;<span class="number">10</span>;i++){
+    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>{
+        <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{
+             <span class="built_in">console</span>.log(i);
+         }
+         test2();
+     })(i);
+}
+</code></pre><blockquote>
 <p>那么，匿名函数可以有哪些使之可以直接通过 ( ); 调用立即执行呢？</p>
 </blockquote>
 <ul>
-<li><p>在匿名函数的外面需要套一层()。注意：此方法函数声明不可以使用。</p>
+<li><p>①在匿名函数的外面需要套一层()。注意：此方法函数声明不可以使用。</p>
 </li>
-<li><p>在匿名函数的前面加上‘+’、‘-’、‘!’、‘return’，使之变成函数表达式。</p>
+<li><p>②在匿名函数的前面加上‘+’、‘-’、‘!’、‘return’，使之变成函数表达式。</p>
 </li>
 </ul>
 <blockquote>
@@ -303,8 +307,8 @@
 <p>这里不知道有没有人会有疑惑，作用域到底是什么？<br>之前学到过全局变量和局部变量。按照我的理解，在JS中，全局变量有两种情况：</p>
 </blockquote>
 <ul>
-<li>定义在函数外面的变量；</li>
-<li>在定义时没有声明，直接是‘i = 10;’这种情况，此时不管该定义是否在函数内外，都是全局变量。</li>
+<li>①定义在函数外面的变量；</li>
+<li>②在定义时没有声明，直接是‘i = 10;’这种情况，此时不管该定义是否在函数内外，都是全局变量。</li>
 </ul>
 <blockquote>
 <p>顾名思义，局部变量指的就是在函数内部的申明了。</p>
@@ -312,9 +316,9 @@
 <p>这里做以下几点总结：</p>
 </blockquote>
 <ul>
-<li>全局变量可以在任何地方访问；</li>
-<li>函数内的变量，对函数外的变量是不可见的；</li>
-<li>函数内部可以访问外部函数的变量；</li>
+<li>①全局变量可以在任何地方访问；</li>
+<li>②函数内的变量，对函数外的变量是不可见的；</li>
+<li>③函数内部可以访问外部函数的变量；</li>
 </ul>
 <blockquote>
 <p>如果有错误的地方，希望及时联系我更正，谢谢！</p>
