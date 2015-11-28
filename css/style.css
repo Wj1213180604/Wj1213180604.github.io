@@ -702,6 +702,7 @@ a {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   padding: 5px;
+  display: block;/*后加的*/
 }
 #header .switch-part3 .switch-friends-link:hover {
   background: #88acdb;
