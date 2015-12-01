@@ -5,19 +5,19 @@
   
   <title>JS作用域和预解析 | 逸仙于誓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。函数总共有3种方式。
-三种方式分别是声明函数、函数表达式、匿名函数。">
+  <meta name="description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。构建函数总共有3种方式。
+三种构建方式分别是声明函数、函数表达式、匿名函数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS作用域和预解析">
 <meta property="og:url" content="http://yoursite.com/2015/11/27/JS作用域和预解析/index.html">
 <meta property="og:site_name" content="逸仙于誓">
-<meta property="og:description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。函数总共有3种方式。
-三种方式分别是声明函数、函数表达式、匿名函数。">
-<meta property="og:updated_time" content="2015-11-28T06:13:22.000Z">
+<meta property="og:description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。构建函数总共有3种方式。
+三种构建方式分别是声明函数、函数表达式、匿名函数。">
+<meta property="og:updated_time" content="2015-12-01T02:15:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS作用域和预解析">
-<meta name="twitter:description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。函数总共有3种方式。
-三种方式分别是声明函数、函数表达式、匿名函数。">
+<meta name="twitter:description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。构建函数总共有3种方式。
+三种构建方式分别是声明函数、函数表达式、匿名函数。">
   
     <link rel="alternative" href="/atom.xml" title="逸仙于誓" type="application/atom+xml">
   
@@ -236,8 +236,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。函数总共有3种方式。</p>
-<p>三种方式分别是声明函数、函数表达式、匿名函数。</p>
+<p>JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。构建函数总共有3种方式。</p>
+<p>三种构建方式分别是声明函数、函数表达式、匿名函数。</p>
 </blockquote>
 <a id="more"></a>
 <ul>
@@ -247,11 +247,17 @@
     <span class="comment">//do something</span>
     }
 </code></pre><ul>
-<li>②函数表达式：是用function关键字声明，再赋给一个变量的函数</li>
+<li>②函数表达式：是用function关键字声明，再赋给一个变量的函数，在函数表达式中有无函数名不重要，如果设置了函数名，调用函数时不能通过函数名调用，此时的函数已经赋值给变量，函数名为undefined。</li>
 </ul>
 <pre><code><span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
     <span class="comment">//do something</span>
 }
+i();
+<span class="comment">//或者</span>
+<span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span> <span class="title">text</span><span class="params">()</span></span>{
+    <span class="comment">//do something</span>
+}
+i();<span class="comment">//text();是错误的</span>
 </code></pre><ul>
 <li>③匿名函数：是用function关键字声明，但没有函数名。它可以赋给变量、事件，也可以起到一个保护变量的作用。比如说，这里第一层function将每一次for循环中的i值都记录下来，起到保护作用。</li>
 </ul>
@@ -270,19 +276,20 @@
      })(i);
 }
 </code></pre><blockquote>
-<p>那么，匿名函数可以有哪些使之可以直接通过 ( ); 调用立即执行呢？</p>
+<p>那么，可以通过那些方式使得匿名函数被调用，立即执行呢？</p>
 </blockquote>
 <ul>
-<li><p>①在匿名函数的外面需要套一层()。注意：此方法函数声明不可以使用。</p>
+<li><p>①在匿名函数的外面需要套一层()。注意：此方法函数声明不可以使用。()在不同的场合有不同的作用，如在算数表达式中(3+2)*5,代表提高优先级。</p>
 </li>
-<li><p>②在匿名函数的前面加上‘+’、‘-’、‘!’、‘return’，使之变成函数表达式。</p>
+<li><p>②在匿名函数的前面加上‘+’、‘-’、‘!’、‘return’等，使之变成函数表达式，博主试过的中*、/、%是不可以使用的。</p>
 </li>
 </ul>
 <blockquote>
-<p>那么浏览器是如何解析JS的呢？<br>浏览器在解析JS之前有两个准备工作：</p>
+<p>那么浏览器是如何解析JS的呢？<br>据博主目前所学，浏览器在解析JS之前至少有以下两个准备工作：</p>
 </blockquote>
 <pre><code><span class="number">1</span>、把变量、函数表达式的声明提升到当前作用域的最顶端；
 <span class="number">2</span>、把函数赋值；
+<span class="number">3</span>、其他工作；
 </code></pre><blockquote>
 <p>例如：</p>
 </blockquote>
@@ -308,7 +315,7 @@
 </blockquote>
 <ul>
 <li>①定义在函数外面的变量；</li>
-<li>②在定义时没有声明，直接是‘i = 10;’这种情况，此时不管该定义是否在函数内外，都是全局变量。</li>
+<li>②在定义时没有用var声明，直接是‘i = 10;’，此时不管该定义是否在函数内外，都是全局变量。</li>
 </ul>
 <blockquote>
 <p>顾名思义，局部变量指的就是在函数内部的申明了。</p>
@@ -317,7 +324,7 @@
 </blockquote>
 <ul>
 <li>①全局变量可以在任何地方访问；</li>
-<li>②函数内的变量，对函数外的变量是不可见的；</li>
+<li>②函数内的变量，对函数外是不可见的；</li>
 <li>③函数内部可以访问外部函数的变量；</li>
 </ul>
 <blockquote>
