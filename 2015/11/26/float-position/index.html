@@ -13,7 +13,7 @@ float是指将一个标签容器浮动起来，定义元素在哪个方向浮动
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="float
 float是指将一个标签容器浮动起来，定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。float会使父级高度没有撑开，从而对父级的同级产生影响。所以，使用了float，就必须要记得清除浮动。">
-<meta property="og:updated_time" content="2015-11-26T12:22:43.000Z">
+<meta property="og:updated_time" content="2015-12-01T02:39:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="float/position(用于布局)">
 <meta name="twitter:description" content="float
@@ -280,7 +280,7 @@ css：
 </blockquote>
 <pre><code><span class="attribute">position</span>:fixed;
 </code></pre><blockquote>
-<p>z-index只有在有position属性的时候才有效，表示当前标签的层级，取值为数字，可以为负数。默认是从上往下层级递加。</p>
+<p>z-index只有在有position属性的时候才有效，表示当前标签的层级，取值为数字，可以为负数,为负数的时候，点击事件不能被触发，如果父级有背景，则看不到该层。默认是从上往下层级递加。</p>
 </blockquote>
 <pre><code><span class="attribute">position</span>:relative;<span class="comment">//relative、absolute、fixed都可以</span>
 <span class="attribute">z-index</span>:<span class="number">999</span>;<span class="comment">//不可以加px等单位</span>
