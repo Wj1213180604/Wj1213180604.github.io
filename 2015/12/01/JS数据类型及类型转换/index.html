@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JS作用域和预解析 | 逸仙于誓</title>
+  <title>JS数据类型及类型转换 | 逸仙于誓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。构建函数总共有3种方式。
-三种构建方式分别是声明函数、函数表达式、匿名函数。">
+  <meta name="description" content="JS数据类型
+JS数据类型是为了方便我们知道变量保存的是什么。JS有5种基础数据类型和一些复杂类型。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS作用域和预解析">
-<meta property="og:url" content="http://yoursite.com/2015/11/27/JS作用域和预解析/index.html">
+<meta property="og:title" content="JS数据类型及类型转换">
+<meta property="og:url" content="http://yoursite.com/2015/12/01/JS数据类型及类型转换/index.html">
 <meta property="og:site_name" content="逸仙于誓">
-<meta property="og:description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。构建函数总共有3种方式。
-三种构建方式分别是声明函数、函数表达式、匿名函数。">
-<meta property="og:updated_time" content="2015-12-01T02:15:02.000Z">
+<meta property="og:description" content="JS数据类型
+JS数据类型是为了方便我们知道变量保存的是什么。JS有5种基础数据类型和一些复杂类型。">
+<meta property="og:updated_time" content="2015-12-01T03:36:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS作用域和预解析">
-<meta name="twitter:description" content="JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。构建函数总共有3种方式。
-三种构建方式分别是声明函数、函数表达式、匿名函数。">
+<meta name="twitter:title" content="JS数据类型及类型转换">
+<meta name="twitter:description" content="JS数据类型
+JS数据类型是为了方便我们知道变量保存的是什么。JS有5种基础数据类型和一些复杂类型。">
   
     <link rel="alternative" href="/atom.xml" title="逸仙于誓" type="application/atom+xml">
   
@@ -202,11 +202,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-JS作用域和预解析" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JS数据类型及类型转换" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/27/JS作用域和预解析/" class="article-date">
-  	<time datetime="2015-11-27T13:44:11.000Z" itemprop="datePublished">2015-11-27</time>
+      <a href="/2015/12/01/JS数据类型及类型转换/" class="article-date">
+  	<time datetime="2015-12-01T02:44:21.000Z" itemprop="datePublished">2015-12-01</time>
 </a>
     </div>
   
@@ -219,7 +219,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JS作用域和预解析
+      JS数据类型及类型转换
     </h1>
   
 
@@ -235,100 +235,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>JS实现了很多功能，丰富了html。JS留给人最深的印象就是，在JS中有很多的函数。构建函数总共有3种方式。</p>
-<p>三种构建方式分别是声明函数、函数表达式、匿名函数。</p>
+        <h1 id="JS数据类型">JS数据类型</h1><blockquote>
+<p>JS数据类型是为了方便我们知道变量保存的是什么。JS有5种基础数据类型和一些复杂类型。<br><a id="more"></a></p>
 </blockquote>
-<a id="more"></a>
-<ul>
-<li>①声明函数:是用function关键字+函数名声明的函数</li>
-</ul>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">text1</span><span class="params">()</span></span>{
-    <span class="comment">//do something</span>
-    }
-</code></pre><ul>
-<li>②函数表达式：是用function关键字声明，再赋给一个变量的函数，在函数表达式中有无函数名不重要，如果设置了函数名，调用函数时不能通过函数名调用，此时的函数已经赋值给变量，函数名为undefined。</li>
-</ul>
-<pre><code><span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-    <span class="comment">//do something</span>
-}
-i();
-<span class="comment">//或者</span>
-<span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span> <span class="title">text</span><span class="params">()</span></span>{
-    <span class="comment">//do something</span>
-}
-i();<span class="comment">//text();是错误的</span>
-</code></pre><ul>
-<li>③匿名函数：是用function关键字声明，但没有函数名。它可以赋给变量、事件，也可以起到一个保护变量的作用。比如说，这里第一层function将每一次for循环中的i值都记录下来，起到保护作用。</li>
-</ul>
-<pre><code><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-    <span class="comment">//do something</span>
-}
-
-<span class="comment">//保护变量的作用举例</span>
-<span class="keyword">var</span> i;
-<span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;<span class="number">10</span>;i++){
-    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>{
-        <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{
-             <span class="built_in">console</span>.log(i);
-         }
-         test2();
-     })(i);
-}
+<pre><code>基础数据类型：<span class="built_in">string</span>
+            <span class="built_in">boolean</span>
+            <span class="built_in">number</span>
+            Null
+            <span class="literal">undefined</span>
+复杂数据类型：object
+</code></pre><h1 id="JS数据类型的扩展">JS数据类型的扩展</h1><blockquote>
+<p>typeof()是用来检测变量的类型的。在以上几种数据类型中，typeof()能够检测出string、number、boolean、undefined、function，而object、array、null检测出的类型是object,所以typeof只能够检测出基础的类型，它分辨不出具体是哪种object。</p>
+<h1 id="数据类型转换">数据类型转换</h1><p>boolean()//将任意值转换成布尔类型。NaN是指非数值，它与任何树枝包括它本身相对比都是不等的。</p>
+</blockquote>
+<pre><code>类型            <span class="literal">true</span>        <span class="literal">false</span>
+<span class="built_in">number</span>      非<span class="number">0</span>数字        <span class="number">0</span>/<span class="literal">NaN</span>
+<span class="built_in">string</span>        非空str      空str
+object      任何对象        <span class="literal">null</span>
+<span class="literal">undefined</span>    --            --
 </code></pre><blockquote>
-<p>那么，可以通过那些方式使得匿名函数被调用，立即执行呢？</p>
+<p>number()//将任意值转换成数字类型。number分为整数和浮点数（小数），在比较的时候建议不要用小数来比较，计算机对小数的解读并不是我们所想的那样。比如说，我们输入0.5，计算机所存的可能就是0.500000000001。这样子说应该清楚了吧。</p>
 </blockquote>
-<ul>
-<li><p>①在匿名函数的外面需要套一层()。注意：此方法函数声明不可以使用。()在不同的场合有不同的作用，如在算数表达式中(3+2)*5,代表提高优先级。</p>
-</li>
-<li><p>②在匿名函数的前面加上‘+’、‘-’、‘!’、‘return’等，使之变成函数表达式，博主试过的中*、/、%是不可以使用的。</p>
-</li>
-</ul>
-<blockquote>
-<p>那么浏览器是如何解析JS的呢？<br>据博主目前所学，浏览器在解析JS之前至少有以下两个准备工作：</p>
+<pre><code>类型            转换后的
+<span class="built_in">boolean</span>          <span class="number">1</span>            <span class="number">0</span>
+<span class="built_in">string</span>        纯数字str---&gt;<span class="built_in">number</span>类型      非纯数字str---&gt;<span class="literal">NaN</span>
+<span class="literal">null</span>              <span class="number">0</span>
+<span class="literal">undefined</span>        <span class="literal">NaN</span>
+</code></pre><h2 id="用于字符串类型的几种方法：">用于字符串类型的几种方法：</h2><blockquote>
+<p>parseInt(num1,num2)是用来取整的（不四舍五入），第一个参数是你要取整的数，第二个参数是进制，默认是10进制，不写也可以。<br>parseFloat():取浮点数，参数只有一个用来写入数据。</p>
 </blockquote>
-<pre><code><span class="number">1</span>、把变量、函数表达式的声明提升到当前作用域的最顶端；
-<span class="number">2</span>、把函数赋值；
-<span class="number">3</span>、其他工作；
+<pre><code><span class="built_in">parseInt</span>(<span class="number">200</span>aaa);<span class="comment">//结果200</span>
+<span class="built_in">parseInt</span>(aaa200);<span class="comment">//结果NaN</span>
 </code></pre><blockquote>
-<p>例如：</p>
-</blockquote>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test3</span><span class="params">()</span></span>{
-    <span class="keyword">var</span> x = <span class="number">10</span>;
-    <span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-        <span class="keyword">var</span> j = <span class="number">20</span>;
-    }
-}
-</code></pre><blockquote>
-<p>这里浏览器在解析之前做的工作相当于：</p>
-</blockquote>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test4</span><span class="params">()</span></span>{
-    <span class="keyword">var</span> x,i;<span class="comment">//将声明提到作用域的最前端</span>
-    x = <span class="number">10</span>;
-    i = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-        <span class="keyword">var</span> j; 
-        j = <span class="number">20</span>;
-    }
-}
-</code></pre><blockquote>
-<p>这里不知道有没有人会有疑惑，作用域到底是什么？<br>之前学到过全局变量和局部变量。按照我的理解，在JS中，全局变量有两种情况：</p>
-</blockquote>
-<ul>
-<li>①定义在函数外面的变量；</li>
-<li>②在定义时没有用var声明，直接是‘i = 10;’，此时不管该定义是否在函数内外，都是全局变量。</li>
-</ul>
-<blockquote>
-<p>顾名思义，局部变量指的就是在函数内部的申明了。</p>
-<p>所以，函数的作用域指的就是{}之内的区域，要注意的是，在JS中，只有函数才有局部作用域。</p>
-<p>这里做以下几点总结：</p>
-</blockquote>
-<ul>
-<li>①全局变量可以在任何地方访问；</li>
-<li>②函数内的变量，对函数外是不可见的；</li>
-<li>③函数内部可以访问外部函数的变量；</li>
-</ul>
-<blockquote>
-<p>如果有错误的地方，希望及时联系我更正，谢谢！</p>
+<p>isNaN()判断是否为数值，能把字符串的<strong>纯数字</strong>转换为number类型的数字来判断。<br>toString()//将任意值转换成字符串类型<br>用于数值、布尔、对象转换成字符串，null、undefined不可以使用toString();</p>
 </blockquote>
 
       
@@ -339,18 +278,9 @@ i();<span class="comment">//text();是错误的</span>
     
 <nav id="article-nav">
   
-    <a href="/2015/12/01/JS数据类型及类型转换/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JS数据类型及类型转换
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/26/float-position/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">float/position(用于布局)</div>
+    <a href="/2015/11/27/JS作用域和预解析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS作用域和预解析</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -379,7 +309,7 @@ i();<span class="comment">//text();是错误的</span>
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JS作用域和预解析" data-title="JS作用域和预解析" data-url="http://yoursite.com/2015/11/27/JS作用域和预解析/"></div>
+	<div class="ds-thread" data-thread-key="JS数据类型及类型转换" data-title="JS数据类型及类型转换" data-url="http://yoursite.com/2015/12/01/JS数据类型及类型转换/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
