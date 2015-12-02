@@ -13,7 +13,7 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="一. 普通对象与函数对象
 JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象，Object ，Function 是JS自带的函数对象。new方法产生的是对象。下面举例说明">
-<meta property="og:updated_time" content="2015-12-02T13:17:57.000Z">
+<meta property="og:updated_time" content="2015-12-02T13:20:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS原型">
 <meta name="twitter:description" content="一. 普通对象与函数对象
@@ -236,9 +236,13 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一-_普通对象与函数对象">一. 普通对象与函数对象</h1><blockquote>
-<p>JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象，Object ，Function 是JS自带的函数对象。new方法产生的是对象。下面举例说明<br><a id="more"></a><br>    function f1(){};<br>    var f2 = function(){};<br>    var f3 = new Function(‘str’,’console.log(str)’);</p>
+<p>JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象，Object ，Function 是JS自带的函数对象。new方法产生的是对象。下面举例说明<br><a id="more"></a></p>
 </blockquote>
-<pre><code><span class="keyword">var</span> o3 = <span class="keyword">new</span> f1();
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>{};
+<span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{};
+<span class="keyword">var</span> f3 = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'str'</span>,<span class="string">'console.log(str)'</span>);
+
+<span class="keyword">var</span> o3 = <span class="keyword">new</span> f1();
 <span class="keyword">var</span> o1 = {};
 <span class="keyword">var</span> o2 =<span class="keyword">new</span> <span class="built_in">Object</span>();
 
