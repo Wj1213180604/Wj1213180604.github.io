@@ -13,7 +13,7 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="一. 普通对象与函数对象
 JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象，Object ，Function 是JS自带的函数对象。new方法产生的是对象。下面举例说明">
-<meta property="og:updated_time" content="2015-12-02T13:20:05.000Z">
+<meta property="og:updated_time" content="2015-12-02T13:25:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS原型">
 <meta name="twitter:description" content="一. 普通对象与函数对象
@@ -336,7 +336,18 @@ text1();
 text2();
 <span class="built_in">console</span>.log(a);<span class="comment">//20</span>
 </code></pre><blockquote>
-<p>在全局作用域下调用this，this指向window。函数声明、匿名函数、函数表达式在全局中调用是，指向window。<br>在上面的例子中，new关键字构造的对象，this指向该对象的父对象。<br>未完待续。。。</p>
+<p>在全局作用域下调用this，this指向window。函数声明、匿名函数、函数表达式在全局中调用是，指向window。</p>
+</blockquote>
+<pre><code><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>);
+    <span class="keyword">this</span>.x = <span class="number">10</span>;
+    <span class="keyword">this</span>.y = <span class="number">20</span>;
+    <span class="keyword">return</span> <span class="keyword">this</span>.x;
+}
+<span class="keyword">var</span> fn2 = <span class="keyword">new</span> fn();
+<span class="built_in">console</span>.log(fn2.x);<span class="comment">//10</span>
+</code></pre><blockquote>
+<p>在上面的例子中，new关键字构造的对象，this指向该对象的父对象。<br>未完待续。。。</p>
 </blockquote>
 
       
