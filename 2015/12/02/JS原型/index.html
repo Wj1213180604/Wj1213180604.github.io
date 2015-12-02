@@ -13,7 +13,7 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="一. 普通对象与函数对象
 JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象，Object ，Function 是JS自带的函数对象。new方法产生的是对象。下面举例说明">
-<meta property="og:updated_time" content="2015-12-02T13:29:45.000Z">
+<meta property="og:updated_time" content="2015-12-02T13:32:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS原型">
 <meta name="twitter:description" content="一. 普通对象与函数对象
@@ -297,7 +297,7 @@ fn2.__proto__.x = <span class="number">40</span>;
 <p>那么该如何判断x是否是自身的属性呢？一般，如果fn2有x属性，则输出fn2的x，否则向上寻找x，输出的是fn的x。</p>
 </blockquote>
 <pre><code><span class="built_in">console</span>.log(fn2.hasOwnProperty(<span class="string">'x'</span>));<span class="regexp">//</span><span class="literal">true</span>
-</code></pre><blockquote>
+</code></pre><h1 id="2-1_this">2.1 this</h1><blockquote>
 <p>这里涉及到this，讲一下this是什么吧。</p>
 </blockquote>
 <pre><code><span class="keyword">var</span> obj = {
