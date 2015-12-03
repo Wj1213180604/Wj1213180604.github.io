@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/03/JS面试蛋疼题/index.html">
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="虽然到了年底，可是求职者还是不在少数。公司往往都会出其不意的出一些令人蛋疼的面试题，屡试不爽。接下来我为大家讲几道另类美的面试题，让大家过过瘾。知识有限，有错误的地方希望大家指正哦～">
-<meta property="og:updated_time" content="2015-12-03T13:22:46.000Z">
+<meta property="og:updated_time" content="2015-12-03T13:24:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS面试蛋疼题">
 <meta name="twitter:description" content="虽然到了年底，可是求职者还是不在少数。公司往往都会出其不意的出一些令人蛋疼的面试题，屡试不爽。接下来我为大家讲几道另类美的面试题，让大家过过瘾。知识有限，有错误的地方希望大家指正哦～">
@@ -256,10 +256,14 @@ var obj = new <span class="function"><span class="keyword">fun</span>();
 <span class="title">console</span></span>.log(obj.name);<span class="regexp">//mm</span>
 delete obj.name;
 console.log(obj.name); <span class="regexp">//undefined</span>
-</code></pre><h2 id="3-2_变量删除（直接用delelte删除不了变量）">3.2 变量删除（直接用delelte删除不了变量）</h2><pre><code><span class="keyword">var</span> name = <span class="string">'lily'</span>;
+</code></pre><blockquote>
+<h2 id="3-2_变量删除（直接用delelte删除不了变量）">3.2 变量删除（直接用delelte删除不了变量）</h2></blockquote>
+<pre><code><span class="keyword">var</span> name = <span class="string">'lily'</span>;
 <span class="keyword">delete</span> name;
 <span class="built_in">console</span>.log(name); <span class="comment">//lily    </span>
-</code></pre><h2 id="3-3_删除不了原型链中的变量">3.3 删除不了原型链中的变量</h2><pre><code><span class="function"><span class="keyword">fun</span>.prototype.age = 18;</span>
+</code></pre><blockquote>
+<h2 id="3-3_删除不了原型链中的变量">3.3 删除不了原型链中的变量</h2></blockquote>
+<pre><code><span class="function"><span class="keyword">fun</span>.prototype.age = 18;</span>
 delete obj.age;
 console.log(obj.age) <span class="comment">//18</span>
 </code></pre><blockquote>
