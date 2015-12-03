@@ -13,7 +13,7 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="一. 普通对象与函数对象
 JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象，Object ，Function 是JS自带的函数对象。new方法产生的是对象。下面举例说明">
-<meta property="og:updated_time" content="2015-12-03T02:12:17.000Z">
+<meta property="og:updated_time" content="2015-12-03T03:22:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS原型">
 <meta name="twitter:description" content="一. 普通对象与函数对象
@@ -22,7 +22,7 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
     <link rel="alternative" href="/atom.xml" title="逸仙于誓" type="application/atom+xml">
   
   
-    <link rel="icon" href="img/cat.jpg">
+    <link rel="icon" href="http://7xoo6z.com1.z0.glb.clouddn.com/cat.jpg">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
@@ -34,7 +34,7 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="img/Q.jpg" class="js-avatar">
+			<img lazy-src="http://7xoo6z.com1.z0.glb.clouddn.com/Q.jpg" class="js-avatar">
 			
 		</a>
 
@@ -168,7 +168,7 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="img/Q.jpg" class="js-avatar">
+				<img lazy-src="http://7xoo6z.com1.z0.glb.clouddn.com/Q.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">逸仙于誓</h1>
@@ -256,14 +256,14 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
 <span class="built_in">console</span>.log(<span class="keyword">typeof</span> f3); <span class="comment">//function </span>
 </code></pre><blockquote>
 <p>在上面的例子中 o1 o2 o3 为普通对象，f1 f2 f3 为函数对象。怎么区分，其实很简单，凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象。f1,f2,归根结底都是通过 new Function()的方式进行创建的。Function Object 也都是通过 New Function()创建的。</p>
-<h1 id="1-1_instanceof()">1.1 instanceof()</h1><p>在前文已经谈到过，并不是所有的类型都能用typeof检测出数据类型，instanceof()用于判断一些复杂的数据类型是否相等，返回值是true/false。</p>
+<h1 id="1-1_instanceof()">1.1 instanceof()</h1><p>在前文已经谈到过，并不是所有的类型都能用typeof检测出数据类型，typeof检测的是基本的数据类型。instanceof()检测引用类型，判断一些复杂的数据类型是否相等，返回值是true/false。</p>
 </blockquote>
 <pre><code>var arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];
 console.<span class="built_in">log</span>(arr instanceof Array);<span class="comment">//true</span>
 console.<span class="built_in">log</span>(arr instanceof Function);<span class="comment">//false</span>
 </code></pre><blockquote>
-<p>instanceof()可以检测function、object、array、New number()、new String()、new Boolean()。</p>
-<h1 id="二-_原型对象">二. 原型对象</h1><p>函数有prototype属性，该属性是一个对象。注：普通对象没有prototype,但有__proto__属性。如果函数没有任何属性的话，prototype默认有一个constructor属性。<br>在JavaScript中，每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性，比如说__proto__属性,该属性是一个对象。__proto__属性指向创建当前对象的函数的prototype。<br>原型对象其实就是普通对象。<strong>Function.prototype除外,它是函数对象，但它很特殊，他没有prototype属性（前面说到函数对象都有prototype属性）</strong>。</p>
+<p>instanceof()可以检测function、object、array、New number()、new String()、new Boolean()，instanceof()对于值类型检测不出来。</p>
+<h1 id="二-_原型对象">二. 原型对象</h1><p>函数有prototype属性，该属性是一个对象。注：普通对象没有prototype(原型),但有__proto__属性。如果函数没有任何属性的话，prototype默认有一个constructor属性。<br>在JavaScript中，每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性，比如说__proto__属性,该属性是一个对象。__proto__属性指向创建当前对象的函数的prototype。<br>原型对象其实就是普通对象。<strong>Function.prototype除外,它是函数对象，但它很特殊，他没有prototype属性（前面说到函数对象都有prototype属性）</strong>。</p>
 </blockquote>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>{};
 <span class="built_in">console</span>.log(f1.prototype); <span class="comment">//f1{}:包括constructor: f1(){}__proto__: Object</span>
@@ -290,7 +290,7 @@ f1.prototype = temp;
 }
 <span class="keyword">var</span> fn2 = <span class="keyword">new</span> fn();
 fn2.a = <span class="number">30</span>;
-<span class="built_in">console</span>.log(fn2.__proto__ == fn.prototype);<span class="comment">//true</span>
+<span class="built_in">console</span>.log(fn2.__proto__ === fn.prototype);<span class="comment">//true</span>
 fn2.__proto__.x = <span class="number">40</span>;
 <span class="built_in">console</span>.log(fn.prototype);<span class="comment">//x=40。fn的x属性被篡改</span>
 </code></pre><blockquote>
