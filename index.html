@@ -227,165 +227,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>定时器分为两种，一种是延时定时器，另一种是循环定时器。</p>
-<h1 id="setTimeout()">setTimeout()</h1><p>setTimeout()是延时定时器，默认只执行一次。它有两个参数，第一个参数是函数或者语句；第二个参数是延迟的时间，单位是ms。</p>
-</blockquote>
-<pre><code>setTimeout<span class="list">(<span class="keyword">fn</span>,<span class="number">2000</span>)</span><span class="comment">;//2秒后执行一次fn函数</span>
-setTimeout<span class="list">(<span class="quoted">'fn</span><span class="list">()</span>',<span class="number">2000</span>)</span><span class="comment">;</span>
-setTimeout<span class="list">(<span class="quoted">'alert</span><span class="list">(<span class="string">"延时定时机器"</span>)</span>',<span class="number">2000</span>)</span><span class="comment">;</span>
-</code></pre><blockquote>
-<p>语句作为参数时，需要用’’引起来。</p>
-<h1 id="clearTimeout()">clearTimeout()</h1><p>有设置延时，自然也有清除延时。setTimeout()会有一个返回值，这个返回值就是clearTimeout()的参数。</p>
-</blockquote>
-<pre><code>var timer = setTimeout<span class="list">(<span class="keyword">fn</span>,<span class="number">2000</span>)</span><span class="comment">;</span>
-clearTimeout<span class="list">(<span class="keyword">timer</span>)</span><span class="comment">;</span>
-</code></pre><h1 id="setInterval()">setInterval()</h1><blockquote>
-<p>setInterval()是循环定时器，在不关闭浏览器，不刷新，不清除定时器的情况下，会一直执行下去。用法、参数和setTimeout()一样。</p>
-</blockquote>
-<pre><code>setInterval<span class="list">(<span class="keyword">fn</span>,<span class="number">2000</span>)</span><span class="comment">;//2秒后执行一次fn函数</span>
-setInterval<span class="list">(<span class="quoted">'fn</span><span class="list">()</span>',<span class="number">2000</span>)</span><span class="comment">;</span>
-setInterval<span class="list">(<span class="quoted">'alert</span><span class="list">(<span class="string">"延时定时机器"</span>)</span>',<span class="number">2000</span>)</span><span class="comment">;</span>
-</code></pre><h1 id="clearInterval()">clearInterval()</h1><blockquote>
-<p>与clearTimeout()用法一样。<br>    var timer = setInterval(fn,2000);<br>    clearInterval(timer);</p>
-<p>#应用小例子<br><strong>第一个例子：发送延时</strong></p>
-</blockquote>
-<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
-<span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">id</span>=<span class="value">"send"</span> <span class="attribute">value</span>=<span class="value">"发送验证码"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">id</span>=<span class="value">"reset"</span> <span class="attribute">value</span>=<span class="value">"重试"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
-        <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-            <span class="keyword">var</span> send=<span class="built_in">document</span>.getElementById(<span class="string">'send'</span>),
-            reset=<span class="built_in">document</span>.getElementById(<span class="string">'reset'</span>),
-            times=<span class="number">60</span>,
-            timer=<span class="literal">null</span>;
-            send.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-                <span class="comment">// 计时开始 </span>
-                timer = setInterval(timeAdd,<span class="number">1000</span>);
-            }
-            <span class="function"><span class="keyword">function</span> <span class="title">timeAdd</span>(<span class="params"></span>)</span>{
-                reset.value = times + <span class="string">'秒后重试'</span>;
-                reset.disabled = <span class="string">"false"</span>;
-                times--;
-                <span class="keyword">if</span>(times &lt; <span class="number">0</span>){
-                    clearInterval(timer);
-                    timeEnd();
-                } 
-            }
-            <span class="function"><span class="keyword">function</span> <span class="title">timeEnd</span>(<span class="params"></span>)</span>{
-                times = <span class="number">60</span>;
-                reset.value = <span class="string">"重试"</span>;
-            }
-        }
-    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span> 
-</code></pre><blockquote>
-<p>运行结果是：<br><img src="http://7xoo6z.com1.z0.glb.clouddn.com/1.png" alt="result"><br><img src="http://7xoo6z.com1.z0.glb.clouddn.com/2.png" alt="result"><br><strong>第二个例子：图片自动切换</strong></p>
-</blockquote>
-<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
-<span class="tag">&lt;<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"index.css"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
-        *<span class="rules">{<span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
-          <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>;
-          <span class="rule"><span class="attribute">list-style</span>:<span class="value">none</span></span>;}</span>
-        <span class="class">.wrap</span><span class="rules">{<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">170px</span></span></span>;
-              <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">490px</span></span></span>;
-              <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">60px</span> auto</span></span>;
-              <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
-              <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
-              <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">100px</span> auto</span></span>;}</span>
-        <span class="class">.wrap</span> <span class="tag">ul</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;}</span> 
-        <span class="class">.wrap</span> <span class="tag">ul</span> <span class="tag">li</span><span class="rules">{<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">170px</span></span></span>;}</span>
-        <span class="class">.wrap</span> <span class="tag">ol</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;
-                 <span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">5px</span></span></span>;
-                 <span class="rule"><span class="attribute">bottom</span>:<span class="value"><span class="number">10px</span></span></span>;}</span>
-        <span class="class">.wrap</span> <span class="tag">ol</span> <span class="tag">li</span><span class="rules">{<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20px</span></span></span>;
-                    <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#ccc</span></span></span>;
-                    <span class="rule"><span class="attribute">border</span>:<span class="value">solid <span class="number">1px</span> <span class="hexcolor">#666</span></span></span>;
-                    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">5px</span></span></span>;
-                    <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#000</span></span></span>;
-                    <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
-                    <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">20px</span></span></span>;
-                    <span class="rule"><span class="attribute">text-align</span>:<span class="value">center</span></span>;
-                    <span class="rule"><span class="attribute">cursor</span>:<span class="value">pointer</span></span>;}</span>
-        <span class="class">.wrap</span> <span class="tag">ol</span> <span class="class">.on</span><span class="rules">{<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#E97305</span></span></span>;
-                     <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#fff</span></span></span>;}</span>
-    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-<span class="tag">&lt;<span class="title">body</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"wrap"</span> <span class="attribute">id</span>=<span class="value">'wrap'</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"pic"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://img.mukewang.com/54111cd9000174cd04900170.jpg"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://img.mukewang.com/54111dac000118af04900170.jpg"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://img.mukewang.com/54111d9c0001998204900170.jpg"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://img.mukewang.com/54111d8a0001f41704900170.jpg"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://img.mukewang.com/54111d7d00018ba604900170.jpg"</span> <span class="attribute">alt</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>    
-    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">ol</span> <span class="attribute">id</span>=<span class="value">"list"</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"on"</span>&gt;</span>1<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span>2<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span>3<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span>4<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">li</span>&gt;</span>5<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">ol</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
-        <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-            <span class="keyword">var</span> wrap=<span class="built_in">document</span>.getElementById(<span class="string">'wrap'</span>),
-            pic=<span class="built_in">document</span>.getElementById(<span class="string">'pic'</span>).getElementsByTagName(<span class="string">'li'</span>),
-            list=<span class="built_in">document</span>.getElementById(<span class="string">'list'</span>).getElementsByTagName(<span class="string">'li'</span>),
-            index=<span class="number">0</span>,
-            timer=<span class="literal">null</span>;
-            <span class="comment">// 定义并调用自动播放函数</span>
-            timer = setInterval(autoPlay,<span class="number">2000</span>);
-            <span class="function"><span class="keyword">function</span> <span class="title">autoPlay</span>(<span class="params"></span>)</span>{
-                index++;
-                <span class="keyword">if</span>(index &gt;= pic.length){
-                    index = <span class="number">0</span>;
-                } 
-            autoPic(index);   
-        }
-        <span class="comment">// 定义图片切换函数</span>
-        <span class="function"><span class="keyword">function</span> <span class="title">autoPic</span>(<span class="params">curIndex</span>)</span>{
-            <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;pic.length;i++){
-                pic[i].style.display = <span class="string">"none"</span>;
-                list[i].className = <span class="string">""</span>;   
-            }
-            pic[curIndex].style.display = <span class="string">"block"</span>;
-            list[curIndex].className = <span class="string">"on"</span>;
-            index = curIndex;<span class="comment">//解决鼠标滑过按钮，移开之后，应该从该按钮下一个开始轮播</span>
-        } 
-        <span class="comment">// 鼠标划过整个容器时停止自动播放</span>
-        wrap.onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-            clearInterval(timer);
-        }
-        <span class="comment">// 鼠标离开整个容器时继续播放至下一张</span>
-        wrap.onmouseout = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-            timer = setInterval(autoPlay,<span class="number">2000</span>);
-        }   
-        <span class="comment">// 遍历所有数字导航实现划过切换至对应的图片</span>
-        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;list.length;i++){
-            list[i].index = i;
-            list[i].onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-                clearInterval(timer);  
-                autoPic(<span class="keyword">this</span>.index);  
-            }
-        }
-    }
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-</code></pre>
+<p>定时器分为两种，一种是延时定时器，另一种是循环定时器。<br>
       
     </div>
     
@@ -394,6 +236,10 @@ setInterval<span class="list">(<span class="quoted">'alert</span><span class="li
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/08/定时器/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
