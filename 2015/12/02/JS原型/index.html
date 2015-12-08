@@ -13,7 +13,7 @@ JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="一. 普通对象与函数对象
 JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象，Object ，Function 是JS自带的函数对象。new方法产生的是对象。下面举例说明">
-<meta property="og:updated_time" content="2015-12-03T13:27:41.000Z">
+<meta property="og:updated_time" content="2015-12-03T13:38:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS原型">
 <meta name="twitter:description" content="一. 普通对象与函数对象
@@ -263,7 +263,7 @@ console.<span class="built_in">log</span>(arr instanceof Array);<span class="com
 console.<span class="built_in">log</span>(arr instanceof Function);<span class="comment">//false</span>
 </code></pre><blockquote>
 <p>instanceof()可以检测function、object、array、New number()、new String()、new Boolean()，instanceof()对于值类型检测不出来。</p>
-<h1 id="二-_原型对象">二. 原型对象</h1><p>函数有prototype属性，该属性是一个对象。注：普通对象没有prototype(原型),但有__proto__属性。如果函数没有任何属性的话，prototype默认有一个constructor属性。<br>在JavaScript中，每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性，比如说__proto__属性,该属性是一个对象。__proto__属性指向创建当前对象的函数的prototype。<br>原型对象其实就是普通对象。</p>
+<h1 id="二-_原型对象">二. 原型对象</h1><p>函数有prototype属性，该属性是一个对象。如果函数没有任何属性的话，prototype默认有一个constructor属性。注：普通对象没有prototype(原型),但有__proto__属性。<br>在JavaScript中，每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性，比如说__proto__属性,该属性是一个对象。__proto__属性指向创建当前对象的函数的prototype。<br>原型对象其实就是普通对象。</p>
 </blockquote>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>{};
 <span class="built_in">console</span>.log(f1.prototype); <span class="comment">//f1{}:包括constructor: f1(){}__proto__: Object</span>
