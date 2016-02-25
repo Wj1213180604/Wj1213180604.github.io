@@ -5,43 +5,21 @@
   
   <title>html知识点回顾（一） | 逸仙于誓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="html文档html基本结构
-
-&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-        &amp;lt;title&amp;gt;
-        &amp;lt;/title&amp;gt;
-    &amp;lt;/head&amp;gt;
-    &amp;lt;body&amp;gt;
-    &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;">
+  <meta name="description" content="html文档一、html基本结构
+刚刚过完年，总觉得整个人不在状态，干不了别的事，那就把年前的知识消化消化，复习复习吧！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html知识点回顾（一）">
 <meta property="og:url" content="http://yoursite.com/2016/02/25/html知识点回顾（一）/index.html">
 <meta property="og:site_name" content="逸仙于誓">
-<meta property="og:description" content="html文档html基本结构
-
-&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-        &amp;lt;title&amp;gt;
-        &amp;lt;/title&amp;gt;
-    &amp;lt;/head&amp;gt;
-    &amp;lt;body&amp;gt;
-    &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;">
-<meta property="og:updated_time" content="2016-02-25T07:51:37.000Z">
+<meta property="og:description" content="html文档一、html基本结构
+刚刚过完年，总觉得整个人不在状态，干不了别的事，那就把年前的知识消化消化，复习复习吧！">
+<meta property="og:image" content="http://www.027art.com/news/UploadFiles_1375/201109/20110903152018352.jpg">
+<meta property="og:image" content="http://www.027art.com/news/UploadFiles_1375/201109/2011090315201835.jpg">
+<meta property="og:updated_time" content="2016-02-25T11:26:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html知识点回顾（一）">
-<meta name="twitter:description" content="html文档html基本结构
-
-&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-        &amp;lt;title&amp;gt;
-        &amp;lt;/title&amp;gt;
-    &amp;lt;/head&amp;gt;
-    &amp;lt;body&amp;gt;
-    &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;">
+<meta name="twitter:description" content="html文档一、html基本结构
+刚刚过完年，总觉得整个人不在状态，干不了别的事，那就把年前的知识消化消化，复习复习吧！">
   
     <link rel="alternative" href="/atom.xml" title="逸仙于誓" type="application/atom+xml">
   
@@ -259,17 +237,143 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="html文档">html文档</h1><h2 id="html基本结构">html基本结构</h2><blockquote>
+        <h1 id="html文档">html文档</h1><h2 id="一、html基本结构">一、html基本结构</h2><blockquote>
+<p>刚刚过完年，总觉得整个人不在状态，干不了别的事，那就把年前的知识消化消化，复习复习吧！<br><a id="more"></a></p>
 </blockquote>
-<pre><code><span class="tag">&lt;html&gt;</span>
-    <span class="tag">&lt;head&gt;</span>
-        <span class="tag">&lt;title&gt;</span>
-        <span class="tag">&lt;/title&gt;</span>
-    <span class="tag">&lt;/head&gt;</span>
-    <span class="tag">&lt;body&gt;</span>
-    <span class="tag">&lt;/body&gt;</span>
-<span class="tag">&lt;/html&gt;</span>
-</code></pre>
+<pre><code><span class="tag">&lt;<span class="title">html</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">title</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+        <span class="comment">&lt;!-- 该区域包含可视化内容，每一个可视化内容都要用一个标签包裹 --&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><blockquote>
+<p><html></html>标签是告诉浏览器该文件是html文件。<br>在每个html文件的开头有&lt;!doctype html&gt;,这不是一个标签，而是一个告诉浏览器应该用什么版本来解析该文档的声明。<br>在html中标签不区分大小写，但是一般建议小写。<br>不同于css和js，html的注释很好记“<!-- -->”，个人认为不管是css还是js，适当的注释会起到很好的作用，在团队合作、后期维护的时候，注释会有助于别人阅读，减少不必要的麻烦！</p>
+</blockquote>
+<h2 id="二、标签">二、标签</h2><h3 id="1、标题标签：h1~h6">1、标题标签：h1~h6</h3><blockquote>
+<p>标题标签分为:</p>
+</blockquote>
+<pre><code><span class="tag">&lt;<span class="title">h1</span>&gt;</span>一级标题<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+<span class="tag">&lt;<span class="title">h2</span>&gt;</span>二级标题<span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+<span class="tag">&lt;<span class="title">h3</span>&gt;</span>三级标题<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+<span class="tag">&lt;<span class="title">h4</span>&gt;</span>四级标题<span class="tag">&lt;/<span class="title">h4</span>&gt;</span>
+<span class="tag">&lt;<span class="title">h5</span>&gt;</span>五级标题<span class="tag">&lt;/<span class="title">h5</span>&gt;</span>
+<span class="tag">&lt;<span class="title">h6</span>&gt;</span>六级标题<span class="tag">&lt;/<span class="title">h6</span>&gt;</span>
+</code></pre><blockquote>
+<p>h1标签一般喜欢用在logo、网站标题或者头条新闻上，需要自己选个合适的标签。h2主要出现在页面的主体内容的文章标题和栏目标题上，可与h3搭配使用。h3一般主打页面的边侧栏。h4是它的辅助，出现频率不高。<br>h1~h6默认字体属性：font-weight:blod;有默认margin值。</p>
+</blockquote>
+<h3 id="2、段落标签：p">2、段落标签：p</h3><blockquote>
+<p></p><p></p>定义段落，是块级标签。有默认margin。一般在css中p{margin:0; padding:0}就可以清除默认样式带来的空白问题。<p></p>
+</blockquote>
+<h3 id="3、链接标签：a">3、链接标签：a</h3><pre><code><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">title</span>=<span class="value">""</span> <span class="attribute">target</span>=<span class="value">""</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+</code></pre><blockquote>
+<p>a标签是一个经常用到的标签，他有三个属性。</p>
+<ul>
+<li>href可以是一个完整的链接地址，如“<a href="http://www.baidu.com”；" target="_blank" rel="external">http://www.baidu.com”；</a><ul>
+<li>可以是“#”，点击后页面跳到最顶端；</li>
+<li>可以是“javascript:;”或者“javascript:void(0);”,鼠标移上去有小手，但点击过后不会跳到页面顶端。</li>
+</ul>
+</li>
+<li>title可以让鼠标悬停在超链接上的时候，显示该超链接的文字注释。这里有个小技巧，如果希望注释多行显示，可以使用&#10;作为换行符。<br>可以将鼠标移上去试一试哦！</li>
+</ul>
+</blockquote>
+<pre><code>&lt;<span class="literal">a</span> href=<span class="string">"http://www.baidu.cn"</span> title = <span class="string">"百度的的中文站点"</span>&gt;百度网站&lt;/<span class="literal">a</span>&gt;
+</code></pre><p><a href="http://www.baidu.cn" title="百度的的中文站点" target="_blank" rel="external">百度网站</a></p>
+<pre><code>&lt;<span class="literal">a</span> href=<span class="string">"http://www.baidu.cn"</span> title = <span class="string">"百度的&amp;#10;中文站点"</span>&gt;百度网站&lt;/<span class="literal">a</span>&gt;
+</code></pre><p><a href="http://www.baidu.cn" title="百度的&#10;中文站点" target="_blank" rel="external">百度网站</a></p>
+<ul>
+<li>target属性规定了在何处打开超链接的文档。（以下摘抄自：<a href="http://www.cnblogs.com/Tally/archive/2013/02/19/2916475.html）" target="_blank" rel="external">http://www.cnblogs.com/Tally/archive/2013/02/19/2916475.html）</a><blockquote>
+<p>有 4 个保留的目标名称用作特殊的文档重定向操作：<br>_blank<br>浏览器总在一个新打开、未命名的窗口中载入目标文档。<br>_self<br>这个目标的值对所有没有指定目标的a标签是默认目标，它使得目标文档载入并显示在相同的框架或者窗口中作为源文档。这个目标是多余且不必要的，除非和文档标题<base>标签中的 target属性一起使用。<br>_parent<br>这个目标使得文档载入父窗口或者包含来超链接引用的框架的框架集。如果这个引用是在窗口或者在顶级框架中，那么它与目标 _self 等效。<br>_top<br>这个目标使得文档载入包含这个超链接的窗口，用 _top 目标将会清除所有被包含的框架并将文档载入整个浏览器窗口。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="4、em标签和strong标签">4、em标签和strong标签</h3><blockquote>
+<p>两者都是表示强调，但strong在语义上表示强烈的强调。可以看一下他们的区别：</p>
+</blockquote>
+<p><em style="color:red">我是em标签</em><br><strong style="color:red">我是strong标签</strong></p>
+<h3 id="5、div标签和span标签">5、div标签和span标签</h3><blockquote>
+<p>div标签可以把文档分割为独立的、不同的部分。它是一个块级元素。</p>
+</blockquote>
+<pre><code>&lt;<span class="keyword">div</span> style=<span class="string">"background-color:#00FF00"</span>&gt;
+      &lt;p&gt;This <span class="keyword">is</span> a <span class="property">paragraph</span>.&lt;/p&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p><div style="background-color:#00FF00"><br>  <p>This is a paragraph.</p><br></div></p>
+<blockquote>
+<p>span标签用来组合文档中的行内元素。没有固定的格式表现，需要对它进行css样式设置。</p>
+</blockquote>
+<pre><code>&lt;p&gt;&lt;span&gt;<span class="keyword">some</span> <span class="type">text</span>.&lt;/span&gt;<span class="keyword">some</span> other <span class="type">text</span>.&lt;/p&gt;
+</code></pre><h3 id="6、img标签">6、img标签</h3><blockquote>
+<p>img用来插入图片，它有三个属性：</p>
+<pre><code><span class="bullet">* </span>src：可以是一个网上的图片路径，也可以是本地的图片路径。
+<span class="bullet">* </span>title：鼠标滑过图片时显示的文本
+<span class="bullet">* </span>alt：指定图像的描述性文本，当图像不可见时（下载不成功时），可看到该属性指定的文本；
+</code></pre></blockquote>
+<p><img src="http://www.027art.com/news/UploadFiles_1375/201109/20110903152018352.jpg" title="胡歌"><br><img src="http://www.027art.com/news/UploadFiles_1375/201109/2011090315201835.jpg" title="胡歌" alt="sorry"></p>
+<blockquote>
+<p>需要注意的是，img在加载不出来时，会有默认的图片border</p>
+</blockquote>
+<h3 id="7、q、blockquote、br、hr、address、code、pre标签">7、q、blockquote、br、hr、address、code、pre标签</h3><ul>
+<li>q 短文本引用 比如在你的网页的文章里想引用某个作家的一句诗，这样会使你的文章更加出彩，那么”标签是你所需要的“。</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">p</span>&gt;</span>Here comes a short quotation: <span class="tag">&lt;<span class="title">q</span>&gt;</span>This is a short quotation<span class="tag">&lt;/<span class="title">q</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><p></p><p>Here comes a short quotation: <q>This is a short quotation</q></p><p></p>
+<p></p><p style="color:red">请注意，浏览器在引用的周围插入了引号。</p><p></p>
+<ul>
+<li>blockquote 长文本引用</li>
+</ul>
+<pre><code>&lt;blockquote&gt;
+This <span class="keyword">is</span> a <span class="keyword">long</span> quotation. This <span class="keyword">is</span> a <span class="keyword">long</span> quotation. This <span class="keyword">is</span> a <span class="keyword">long</span> quotation. This <span class="keyword">is</span> a <span class="keyword">long</span> quotation. This <span class="keyword">is</span> a <span class="keyword">long</span> quotation.
+&lt;/blockquote&gt;
+</code></pre><p><blockquote>This is a long quotation. This is a long quotation. This is a long quotation. This is a long quotation. This is a long quotation.</blockquote><br><span style="color:red;">请注意，浏览器在blockquote 元素前后添加了换行，并增加了外边距。</span></p>
+<pre><code><span class="tag">&lt;<span class="title">hr</span>/&gt;</span>
+<span class="tag">&lt;<span class="title">address</span>&gt;</span>样式为斜体<span class="tag">&lt;/<span class="title">address</span>&gt;</span>
+</code></pre><p><hr></p>
+<p><address>样式为斜体</address><br><span style="color:orange;">问题：address这里应该是斜体，为什么不是斜体呢？？？</span></p>
+<blockquote>
+<p>code 在网页中显示一些计算机专业的编程代码，当代码为一行代码时，你就可以使用code标签了 </p>
+</blockquote>
+<pre><code>&lt;code&gt;
+    var i = 0<span class="comment">;</span>
+    i++<span class="comment">;</span>
+    alert i<span class="comment">;</span>
+&lt;/code&gt;
+</code></pre><p><code><br>    var i = 0;<br>    i++;<br>    alert i;<br></code><br><span style="color:orange;">问题：code这里应该是一行，为什么会自动分行呢？？？</span></p>
+<blockquote>
+<p>pre 预格式化的文本 要插入多行代码时不能使用code标签，如果是多行代码，可以使用pre标签</p>
+</blockquote>
+<pre><code>&lt;pre&gt;
+    var i = 0<span class="comment">;</span>
+    i++<span class="comment">;</span>
+    alert i<span class="comment">;</span>
+&lt;/pre&gt;
+</code></pre><p>运行结果是：</p>
+<pre>
+    var i = 0;
+    i++;
+    alert i;
+</pre>
+
+<h2 id="三、列表">三、列表</h2><blockquote>
+<p>无论是ol、ul、dl都是组合标签，不可以自己在li的同级添加其他标签，只能在li内部添加其他标签。有默认的margin、padding、list-style-type。</p>
+</blockquote>
+<h3 id="1、有序列表ol_li">1、有序列表ol li</h3><pre><code><span class="tag">&lt;ol&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
+</code></pre><h3 id="2、无序列表ul_li">2、无序列表ul li</h3><pre><code><span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+</code></pre><h3 id="3、自定义列表_dl_dt_dd">3、自定义列表 dl dt dd</h3><pre><code><span class="tag">&lt;<span class="title">dl</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">dt</span>&gt;</span>水果：<span class="tag">&lt;/<span class="title">dt</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">dd</span>&gt;</span>橘子、香蕉、苹果<span class="tag">&lt;/<span class="title">dd</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">dt</span>&gt;</span>动物：<span class="tag">&lt;/<span class="title">dt</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">dd</span>&gt;</span>大象、猴子、青蛙<span class="tag">&lt;/<span class="title">dd</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">dl</span>&gt;</span>
+</code></pre><p>自定义列表又叫字典列表，多用于宝贝描述</p>
+<h2 id="表格">表格</h2>
       
     </div>
     
