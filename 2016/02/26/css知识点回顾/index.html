@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/02/26/css知识点回顾/index.html">
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="好吧，css如何下手还真有点迷茫。。。那我就从如何引入css说起吧！">
-<meta property="og:updated_time" content="2016-02-26T03:58:56.000Z">
+<meta property="og:updated_time" content="2016-02-26T13:43:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css知识点回顾">
 <meta name="twitter:description" content="好吧，css如何下手还真有点迷茫。。。那我就从如何引入css说起吧！">
@@ -233,7 +233,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>好吧，css如何下手还真有点迷茫。。。那我就从如何引入css说起吧！<br><a id="more"></a></p>
-<h1 id="css的引入方式">css的引入方式</h1><p><span style="color:green">css有三种引入方式，分别是：</span></p>
+<h1 id="css的引入方式">css的引入方式</h1><p><span style="color:green">css:层叠样式表单有三种引入方式，分别是：</span></p>
 <ul>
 <li>行间样式（优先级别是最高的，一般不建议这么使用）</li>
 <li>内部引入（在header部分用下列代码引入）</li>
@@ -243,8 +243,80 @@
 <li>外部引入（在header部分用下列代码引入）</li>
 </ul>
 <pre><code>&lt;<span class="keyword">link</span> rel=<span class="string">'stylesheet'</span> <span class="keyword">type</span>=<span class="string">"text/css"</span> href=<span class="string">"css的路径"</span>/&gt;
-</code></pre><h1 id="一、css样式">一、css样式</h1><h2 id="1、width、height">1、width、height</h2><p>块级元素可以设置width、height，但是行级元素只可以设置width，不能直接设置height</p>
-<h2 id="2、background">2、background</h2><h2 id="3、font">3、font</h2><h2 id="4、列表的样式">4、列表的样式</h2><h2 id="5、表格的样式">5、表格的样式</h2><h2 id="6、a链接的四种状态">6、a链接的四种状态</h2><h2 id="7、轮廓">7、轮廓</h2><h1 id="二、css定位">二、css定位</h1><h2 id="1、position">1、position</h2><h2 id="2、float">2、float</h2><h1 id="三、css盒子模型">三、css盒子模型</h1><h2 id="1、margin">1、margin</h2><h2 id="2、padding">2、padding</h2><h2 id="3、border">3、border</h2><h1 id="四、css选择器">四、css选择器</h1><h2 id="1、标签选择器（元素选择器）">1、标签选择器（元素选择器）</h2><h2 id="2、ID选择器">2、ID选择器</h2><h2 id="3、派生选择器（父子选择器）">3、派生选择器（父子选择器）</h2><h2 id="4、类选择器">4、类选择器</h2><h2 id="5、群组选择器">5、群组选择器</h2><h2 id="6、通配选择器">6、通配选择器</h2>
+</code></pre><p>各自优缺点、场景、优先级</p>
+<ul>
+<li>行间样式—优点：优先级最高，不会被其他样式覆盖影响，缺点：不利于代码维护，没有行为样式内容分离、不可通用、影响阅读体验</li>
+<li>外部引入—内容样式分离，利于样式复用，修改需要警慎，增加了一次请求</li>
+<li>内部引用—优点：不利于复用，适用于单一页面</li>
+<li>@import url()—会发生一次请求，该方法不常用,了解就好，不建议使用</li>
+</ul>
+<p><span style="color:red;font-size:24px;">important的优先级别&gt;行间样式的优先级别</span></p>
+<h1 id="注释方法：">注释方法：</h1><p><span style="color:red">/<em>…</em>/</span></p>
+<h1 id="一、css样式">一、css样式</h1><h2 id="1、width、height">1、width、height</h2><p>块级元素可以设置width、height，但是行级元素只可以设置width，不能直接设置height</p>
+<h2 id="2、background">2、background</h2><ul>
+<li>background-color:背景颜色<br>  颜色值：<br>  1、关键词：浏览器支持140种颜色、css合法17标准颜色：aqua fuchsia lime olive red white black gray maroon orange silver yellow blue green navy purple teal<br>  2、16进制：<br>  3、rgb：红绿蓝、0～255、黑～白<br>  4、rgba：（IE8以下不支持）<br>  5、hsl：（IE8以下不支持）色调、饱和度（0～100%）、亮度（0～100%）<br>  6、hsla：（IE8以下不支持）</li>
+<li>background-image：url():背景图片，该属性不会撑开容器</li>
+<li>background-position：背景图片位置</li>
+<li>background-size:背景图片的大小</li>
+<li>background-repeat:no-repeat/repeat-x/repeat-y/repeat;</li>
+</ul>
+<pre><code><span class="attribute">background-position</span><span class="value">:<span class="number">0px</span> <span class="number">0px</span>;</span>
+<span class="attribute">background-size</span>：100px 100px;
+<span class="attribute">background</span><span class="value">:red <span class="function">url</span>() <span class="number">0px</span> <span class="number">0px</span> no-repeat;</span><span class="comment">//复合写法</span>
+</code></pre><h2 id="3、font">3、font</h2><pre><code>font-<span class="string">family:</span>字体，如Tohoma，serif，sans-serif
+font-<span class="string">size:</span>字体大小，一般浏览器的默认字体大小是<span class="number">16</span>px;
+<span class="string">color:</span>字体颜色
+font-<span class="string">weight:</span>加粗（bold<span class="regexp">/bolder/</span>normal）
+font-<span class="string">style:</span>字体样式，如italic（斜体）、normal（默认样式）、oblique
+text-<span class="string">decoration:</span>line-<span class="keyword">throw</span>(中划线)<span class="regexp">/underline(下划线，默认样式)/</span>none(无)<span class="regexp">/overline(上划线)/</span>blink/inherit(继承)
+line-<span class="string">hight:</span>基线到基线的距离
+</code></pre><p>(补充<span style="color:red">行距：基线到下一行的顶线的距离</span>)</p>
+<p><span style="color:green">这里字体颜色单位见上文2、background</span></p>
+<pre><code><span class="attribute">font</span>:font-weight,font-size/line-height,font-family;<span class="comment">//复合写法</span>
+<span class="attribute">font</span>:bold,<span class="number">14px</span>/<span class="number">1.5</span>,Tohoma,sans-serif;
+</code></pre><p>这里字体：<br>    按顺序查找字体，如果都没有，以缺字符代替，一般是小正方形。<br>    加引号时保留空格字符。<br>    为了防止不能阅读，以sans-serif或serif结尾。</p>
+<h2 id="4、列表的样式">4、列表的样式</h2><p>list-style-type:序列号</p>
+<h2 id="5、表格的样式">5、表格的样式</h2><p>待续</p>
+<h2 id="7、轮廓">7、轮廓</h2><p>待续</p>
+<h1 id="二、css定位">二、css定位</h1><h2 id="1、position">1、position</h2><ul>
+<li>相对定位：relative</li>
+<li>绝对定位：absolute</li>
+<li>固定定位：fixed</li>
+</ul>
+<p><span style="color:red;font-size:24px;">具体的可以移步:</span><a href="http://wj1213180604.github.io/2015/11/26/float-position/" target="_blank" rel="external">http://wj1213180604.github.io/2015/11/26/float-position/</a></p>
+<h2 id="2、float">2、float</h2><p><span style="color:red;font-size:24px;">清除浮动等具体的可以移步:</span><a href="http://wj1213180604.github.io/2015/11/26/float-position/" target="_blank" rel="external">http://wj1213180604.github.io/2015/11/26/float-position/</a></p>
+<h1 id="三、css盒子模型">三、css盒子模型</h1><h2 id="1、margin">1、margin</h2><ul>
+<li>margin-top、margin-right、margin-bottom、margin-left是margin的四个属性值。</li>
+</ul>
+<pre><code><span class="attribute">margin</span>: top right bottom left;<span class="comment">//复合写法，单位是px或者%</span>
+</code></pre><h2 id="2、padding">2、padding</h2><ul>
+<li>padding-top、padding-right、padding-bottom、padding-left是padding的四个属性值。</li>
+</ul>
+<pre><code><span class="attribute">padding</span>: top right bottom left;<span class="comment">//复合写法，单位是px或者%</span>
+</code></pre><h2 id="3、border">3、border</h2><ul>
+<li>border-color:默认与字体颜色一样</li>
+<li>border-width:不可以为负数，默认是3px</li>
+<li>border-style:<br>  solid（实线）/dotted（点状线，IE6不兼容）/dashed（虚线）/double（双边线）</li>
+<li>border-radius:圆角边，单位是px或者%</li>
+</ul>
+<p><span style="color:green">有属性border-right-width,可以以此类推</span></p>
+<h2 id="4、类选择器(-class)">4、类选择器(.class)</h2><h2 id="5、分组选择器(,,,,,)">5、分组选择器(,,,,,)</h2><p>偏重于代码优化，减少css体积</p>
+<h2 id="6、通配选择器(*)—无兼容问题">6、通配选择器(*)—无兼容问题</h2><p>态度：尽量不要用</p>
+<h2 id="7、伪类选择器—a链接的四种状态">7、伪类选择器—a链接的四种状态</h2><p>:link、:hover、:active、:visited<br>遵循lovehate法则，顺序最好不要打乱</p>
+<h2 id="8、伪元素选择器（css3）::">8、伪元素选择器（css3）::</h2><h1 id="继承："><span style="color:orange;font-size:24px;">继承：</span></h1><p>待续</p>
+<h1 id="单位："><span style="color:orange;font-size:24px;">单位：</span></h1><p>单位的值有px、%（继承父级）、em（倍数，根据父级）、rem（倍数，根据html标签，更加便捷计算和控制！r—&gt;root）、视窗单位（vh＝viewport/100、vw＝viewport/100、）</p>
+<h1 id="BFC："><span style="color:orange;font-size:24px;">BFC：</span></h1><p>FC：Formatting Content.格式化上下文<br>BFC：Block Formatting Content.块级格式化上下文<br>IFC：Inline Formatting Content.行级格式化上下文</p>
+<p><span style="color:red;font-size:24px;">BFC的生成条件：(此处我也很迷糊！！！)</span><br>1、float值不为none<br>2、overflow值不为visible<br>3、display的值为inline-block、table-cell、table-caption<br>4、position的值是absolute、fixed<br><span style="color:red;font-size:24px;">BFC的约束规则：</span><br>1、生成BFC元素的子元素会一个接一个的放置。垂直方向上他们的起点是一个包含块的顶部，两个相邻子元素之间的垂直距离取决于元素的margin特性。在BFC中相邻的块级元素外边距会折叠。<br>2、生成BFC元素的子元素中，每一个子元素做外边距与包含块的左边界相接触，（对于从右到左的格式化，右外边距接触右边界），即使浮动元素也是如此（尽管子元素的内容区域会由于浮动而压缩），除非这个子元素也创建了一个新的BFC（如它自身也是一个浮动元素）。</p>
+<p></p>
+<p>有道友对它做了分解，我们直接拿来：</p>
+<pre><code><span class="number">1</span>、内部的Box会在垂直方向上一个接一个的放置
+<span class="number">2</span>、垂直方向上的距离由margin决定。（完整的说法是：属于同一个BFC的两个相邻Box的margin会发生重叠，与方向无关。）
+<span class="number">3</span>、每个元素的左外边距与包含块的左边界相接触（从左向右），即使浮动元素也是如此。（这说明BFC中子元素不会超出他的包含块，而position为absolute的元素可以超出他的包含块边界）
+<span class="number">4</span>、BFC的区域不会与<span class="keyword">float</span>的元素区域重叠
+<span class="number">5</span>、计算BFC的高度时，浮动子元素也参与计算
+<span class="number">6</span>、BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面元素，反之亦然
+</code></pre><p>在一个BFC容器里，里面任何一个子元素，不会对外部造成影响。</p>
+
       
     </div>
     
