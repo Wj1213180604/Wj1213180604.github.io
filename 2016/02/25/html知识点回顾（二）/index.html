@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="表格
 表格的基本结构:">
-<meta property="og:updated_time" content="2016-02-25T13:40:05.000Z">
+<meta property="og:updated_time" content="2016-02-26T03:22:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html知识点回顾（二）">
 <meta name="twitter:description" content="表格
@@ -251,12 +251,128 @@
 </code></pre><ul>
 <li>table为组合标签，只有th和td中间可以嵌套其他的标签。th标签表示行头，一个tr中只能有一个th，而td可以有好几个。</li>
 <li>th默认字体加粗，上下左右居中，该标签是非必需标签，可以不写。</li>
-<li>这里有几个注意点：<ul>
+</ul>
+<p><span style="color:red">这里有几个注意点：</span></p>
+<ul>
 <li>在css中设置边框的时候，需要对table、tr、th同时设置才能有效果。</li>
 <li>border-spacing属性表示设置相邻单元格的间距，设置两个值时是第一个值表示左右，第二个值表示上下；设置一个值时表示上下左右。</li>
+<li>个人认为table中有几个属性值需要记一下：<ul>
+<li>border-collapse:seperate(不合并边框)||collapse(合并边框)</li>
+<li>rowspan:跨行,即单元格可横跨的行数</li>
+<li>colspan:跨列,即单元格可横跨的列数</li>
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>在表格中默认是垂直居中的，即vertical-align:middle;vertical-align这个属性一共有三个值：middle、top、bottom。这个属性是不可以直接对div使用的，他只对table中的文本内容有作用。</p>
+</blockquote>
+<p><span style="color:red;font-size:24px;">这里就整理一下如何使div居中吧！</span><br>① 对div添加</p>
+<pre><code><span class="attribute">display</span>:table-cell;
+<span class="attribute">vertical-align</span>:middle;
+</code></pre><p>② 当width、height的单位是%的时候，由于继承关系，可以设置</p>
+<pre><code>margin:<span class="number">50</span>% <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="comment">//这里的百分比是按照父级标签的height算的。</span>
+</code></pre><p>③如果要让整个div在他的父级居中，可以对div设置：</p>
+<pre><code><span class="attribute">position</span><span class="value">:relative;</span><span class="comment">//或者absolute,根据情况选择</span>
+<span class="attribute">top</span><span class="value">:<span class="number">50%</span>;</span>
+<span class="attribute">left</span><span class="value">:<span class="number">50%</span>;</span>
+<span class="attribute">margin</span><span class="value">: <span class="function">-</span>(height/<span class="number">2</span>)px <span class="number">0</span> <span class="number">0</span> <span class="function">-</span>(width/<span class="number">2</span>)px;</span>
+</code></pre><p>接下来是一个不经常用到的属性：summary(概要)</p>
+<pre><code><span class="tag">&lt;<span class="title">table</span> <span class="attribute">summary</span>=<span class="value">"我是摘要"</span>&gt;</span><span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+</code></pre><h2 id="表单">表单</h2><p>个人对表单的理解并不深透，只能讲一些表面上的东西了。。。<br>form有两个属性，至于有什么用，我还木有弄明白。。。</p>
+<pre><code>- action：输入的数据被传送到的地址,比如一个<span class="type">PHP</span>页面(test.php)。
+- <span class="keyword">method</span>：数据传送的方式（get/post）
+</code></pre><blockquote>
+<p>input有很多类型。type属性来确定是哪一种类型。</p>
+</blockquote>
+<p><span style="font-size:24px;">单标签：</span><br>    ① text:文本输入框，value值表示默认显示的文字内容<br>    ② password:密码输入框，value值表示默认显示的密码值；name 为文本框命名，以备后台程序ASP 、PHP使用<br>    ③ radio:单选框<br>    ④ checkbox:复选框</p>
+<ul>
+<li><p>③和④有共同的属性name,value,checked。value 提交数据到服务器的值（后台程序PHP使用）；name 为控件命名，以备后台程序ASP、PHP使用当设置checked 或 checked=”checked”时，该选项被默认选中。<br><span style="color:red;font-size:24px;">注意：</span>同一组的单选按钮，name取值一定要一致，这样同一组的单选按钮才可以起到单选的作用<br>  ⑤ submit:提交按钮<br>  ⑥ reset:重置按钮<br>  ⑦ hidden:隐藏，将数据存放到value中<br>  ⑧ button:按钮，按钮上的值可以通过value来改变<br>  ⑨ file:文件上传；<input type="file"> 它是常用的上传标签，但是它长得又丑、浏览的字样不能换，我们一般会用让它隐藏，点其他的标签（图片等）来时实现选择文件上传功能。<br><span style="font-size:24px;">双标签：</span><br>  ① textarea:文本域；这个类型有一个不好的，就是可以随意改变大小。可以通过添加如下两个样式禁用拖动，固定大小：<br>  1、彻底禁用拖动（推荐）</p>
+<pre><code><span class="attribute">resize</span>:none;
+</code></pre><p>  2、只是固定大小，右下角的拖动图标仍在</p>
+<pre><code><span class="attribute">width</span>: <span class="string">200px;</span>
+<span class="attribute">height</span>: <span class="string">100px;</span>
+<span class="attribute">max-width</span>: <span class="string">200px;</span>
+<span class="attribute">max-height</span>: <span class="string">100px;</span>
+</code></pre><p>  textarea的cols属性值规定多行输入域的列数。同样，rows规定多行输入域的行数。<br>  ② select:下拉框，它是一个组合标签。</p>
+</li>
+</ul>
+<pre><code>    &lt;select&gt;
+        &lt;<span class="keyword">option</span>&gt;&lt;/<span class="keyword">option</span>&gt;<span class="comment">//下拉选项</span>
+        &lt;<span class="keyword">option</span>&gt;&lt;/<span class="keyword">option</span>&gt;<span class="comment">//下拉选项</span>
+        &lt;<span class="keyword">option</span>&gt;&lt;/<span class="keyword">option</span>&gt;<span class="comment">//下拉选项</span>
+    &lt;/select&gt;
+select的multiple属性可以实现多选功能，就是样式变丑了。。。 
+</code></pre><h2 id="meta标签（我好像只会用，不知道为什么是要这个样子。。。亲们就看看就好）">meta标签（我好像只会用，不知道为什么是要这个样子。。。亲们就看看就好）</h2><blockquote>
+<p>meta标签是位于html头部的标签，为html提供数据，该数据不会显示在页面上。</p>
+</blockquote>
+<ul>
+<li>申明编码</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">'utf-8'</span>&gt;</span>
+</code></pre><ul>
+<li>优先使用IE最新版本和Chrome</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">'X-UA-Compatible'</span> <span class="attribute">content</span>=<span class="value">'IE=edge,chrome=1'</span>&gt;</span>
+</code></pre><ul>
+<li>浏览器内核控制</li>
+</ul>
+<p><span style="color:green">因为国内很多浏览器都是双内核，即webkit和Trident。webkit内核高速浏览器，IE内核兼容网页和旧版网站。该标签可以控制浏览器选择何种内核渲染。</span></p>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">'renderer'</span> <span class="attribute">content</span>=<span class="value">'webkit|ie-comp|ie-stand'</span>&gt;</span>
+</code></pre><ul>
+<li>页面关键字</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">'keywords'</span> <span class="attribute">content</span>=<span class="value">'your tags'</span>/&gt;</span>
+</code></pre><ul>
+<li>页面描述</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">'description'</span> <span class="attribute">content</span>=<span class="value">'120|150 words'</span>/&gt;</span>
+</code></pre><ul>
+<li>搜索引擎方式</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">'robots'</span> <span class="attribute">content</span>=<span class="value">'index,follow'</span>/&gt;</span>
+</code></pre><p>它的content值有以下几种情况：</p>
+<ul>
+<li>all：文件将被检索，且链接可以被查询</li>
+<li>none：文件将不被检索，且链接不可以被查询</li>
+<li>index：文件将不被检索</li>
+<li>follow：链接可以被查询</li>
+<li>noindex：文件将不被检索</li>
+<li>nofollow：链接不可以被查询</li>
+</ul>
+<ul>
+<li>页面重定向和刷新</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">'refresh'</span> <span class="attribute">content</span>=<span class="value">'0;url="####"'</span>/&gt;</span>
+</code></pre><p>content内的数字代表多少时间后刷新，如果有url，则会重顶想到指定网页，一般不建议使用！！！</p>
+<ul>
+<li>网页作者信息</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">'author'</span> <span class="attribute">content</span>=<span class="value">'author name'</span>/&gt;</span>
+</code></pre><ul>
+<li>移动设备</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">'viewport'</span> <span class="attribute">content</span>=<span class="value">'width=device-width，initial-scale=1.0,maximum-scale=1.0,user-scalable=no'</span>/&gt;</span>
+</code></pre><ul>
+<li>webApp全屏模式：伪装app，离线应用</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">'app-mobile-web-app-capable'</span> <span class="attribute">content</span>=<span class="value">'yes'</span>/&gt;</span>
+</code></pre><ul>
+<li>隐藏状态栏、设置状态栏颜色：只有在开启webApp全屏模式才生效。content的值为default|black|black-translucent</li>
+</ul>
+<pre><code>&lt;meta name=<span class="symbol">'app</span>-mobile-web-app-status-bar-style' content=<span class="symbol">'black</span>-translucent'/&gt;
+</code></pre><ul>
+<li>添加到主屏后的标题，content的值为default|black|black-translucent</li>
+</ul>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">'app-mobile-web-app-title'</span> <span class="attribute">content</span>=<span class="value">'标题'</span>/&gt;</span>
+</code></pre><ul>
+<li>忽略数字自动识别为电话号码</li>
+</ul>
+<pre><code>&lt;meta name=<span class="symbol">'format</span>-detection' content=<span class="symbol">'telephone</span>=no'/&gt;
+</code></pre><ul>
+<li>忽略识别邮箱</li>
+</ul>
+<pre><code>&lt;meta name=<span class="symbol">'format</span>-detection' content=<span class="symbol">'email</span>=no'/&gt;
+</code></pre><p><span style="color:red;font-size:24px;">关于meta方面，还有form，有其他见解吗？欢迎交流！</span></p>
 
       
     </div>
@@ -265,6 +381,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/02/26/css知识点回顾/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          css知识点回顾
+        
+      </div>
+    </a>
   
   
     <a href="/2016/02/25/html知识点回顾（一）/" id="article-nav-older" class="article-nav-link-wrap">
