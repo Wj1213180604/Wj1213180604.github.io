@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="表格
 表格的基本结构:">
-<meta property="og:updated_time" content="2016-02-26T03:22:06.000Z">
+<meta property="og:updated_time" content="2016-02-29T09:42:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html知识点回顾（二）">
 <meta name="twitter:description" content="表格
@@ -266,17 +266,57 @@
 <blockquote>
 <p>在表格中默认是垂直居中的，即vertical-align:middle;vertical-align这个属性一共有三个值：middle、top、bottom。这个属性是不可以直接对div使用的，他只对table中的文本内容有作用。</p>
 </blockquote>
-<p><span style="color:red;font-size:24px;">这里就整理一下如何使div居中吧！</span><br>① 对div添加</p>
-<pre><code><span class="attribute">display</span>:table-cell;
-<span class="attribute">vertical-align</span>:middle;
-</code></pre><p>② 当width、height的单位是%的时候，由于继承关系，可以设置</p>
+<p><span style="color:red;font-size:24px;">这里就整理一下如何使div居中吧！<a href="http://www.cnblogs.com/dojo-lzz/p/4419596.html" target="_blank" rel="external">http://www.cnblogs.com/dojo-lzz/p/4419596.html</a></span><br>① 对div添加：<br>table-cell需要有一个父级div1，一个子集div2,子集的子集div3即：</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"div1"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"div2"</span>&gt;
+        &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"div2"</span>&gt;
+        &lt;/<span class="keyword">div</span>&gt;
+    &lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>css样式：</p>
+<pre><code><span class="class">.div1</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+}</span>
+<span class="class">.div2</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table-cell</span></span>;
+    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value">middle</span></span>;
+}</span>
+<span class="class">.div3</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">block</span></span>;
+}</span>
+</code></pre><p>② ????当width、height的单位是%的时候，由于继承关系，可以设置</p>
 <pre><code>margin:<span class="number">50</span>% <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="comment">//这里的百分比是按照父级标签的height算的。</span>
-</code></pre><p>③如果要让整个div在他的父级居中，可以对div设置：</p>
+</code></pre><p>③如果要让整个div在他的父级居中，可以对div设置：（兼容性最好！）</p>
 <pre><code><span class="attribute">position</span><span class="value">:relative;</span><span class="comment">//或者absolute,根据情况选择</span>
 <span class="attribute">top</span><span class="value">:<span class="number">50%</span>;</span>
 <span class="attribute">left</span><span class="value">:<span class="number">50%</span>;</span>
 <span class="attribute">margin</span><span class="value">: <span class="function">-</span>(height/<span class="number">2</span>)px <span class="number">0</span> <span class="number">0</span> <span class="function">-</span>(width/<span class="number">2</span>)px;</span>
-</code></pre><p>接下来是一个不经常用到的属性：summary(概要)</p>
+</code></pre><p><span style="color:orange;font-size:24px;">④flex（将来的主流）</span></p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"div1"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"div2"</span>&gt;
+    &lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>css样式</p>
+<pre><code><span class="class">.div1</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">flex</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100%</span></span></span>;
+    <span class="rule"><span class="attribute">justify-content</span>:<span class="value">center</span></span>;
+    <span class="rule"><span class="attribute">align-items</span>:<span class="value">center</span></span>;
+}</span>
+<span class="class">.div2</span><span class="rules">{
+    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">200px</span></span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">200px</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">4px</span> <span class="hexcolor">#000</span> solid</span></span>;
+}</span>
+</code></pre><p>⑤inline-block</p>
+<ul>
+<li><p>absolute和inline-block都具有包裹性，不在自适应width</p>
+<p>  div{</p>
+<pre><code><span class="attribute">display</span>:inline-block;
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p>接下来是一个不经常用到的属性：summary(概要)</p>
 <pre><code><span class="tag">&lt;<span class="title">table</span> <span class="attribute">summary</span>=<span class="value">"我是摘要"</span>&gt;</span><span class="tag">&lt;/<span class="title">table</span>&gt;</span>
 </code></pre><h2 id="表单">表单</h2><p>个人对表单的理解并不深透，只能讲一些表面上的东西了。。。<br>form有两个属性，至于有什么用，我还木有弄明白。。。</p>
 <pre><code>- action：输入的数据被传送到的地址,比如一个<span class="type">PHP</span>页面(test.php)。

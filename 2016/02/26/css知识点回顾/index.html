@@ -11,7 +11,9 @@
 <meta property="og:url" content="http://yoursite.com/2016/02/26/css知识点回顾/index.html">
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="好吧，css如何下手还真有点迷茫。。。那我就从如何引入css说起吧！">
-<meta property="og:updated_time" content="2016-02-26T13:43:34.000Z">
+<meta property="og:image" content="http://images.cnitblog.com/blog/347002/201409/121710262933336.jpg">
+<meta property="og:image" content="http://images.cnitblog.com/blog/347002/201409/121710451993093.jpg">
+<meta property="og:updated_time" content="2016-02-29T09:58:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css知识点回顾">
 <meta name="twitter:description" content="好吧，css如何下手还真有点迷茫。。。那我就从如何引入css说起吧！">
@@ -250,7 +252,7 @@
 <li>内部引用—优点：不利于复用，适用于单一页面</li>
 <li>@import url()—会发生一次请求，该方法不常用,了解就好，不建议使用</li>
 </ul>
-<p><span style="color:red;font-size:24px;">important的优先级别&gt;行间样式的优先级别</span></p>
+<p><span style="color:red;font-size:24px;">important的优先级别&gt;行间样式的优先级别</span><br>!important 为某些样式设置最高权值</p>
 <h1 id="注释方法：">注释方法：</h1><p><span style="color:red">/<em>…</em>/</span></p>
 <h1 id="一、css样式">一、css样式</h1><h2 id="1、width、height">1、width、height</h2><p>块级元素可以设置width、height，但是行级元素只可以设置width，不能直接设置height</p>
 <h2 id="2、background">2、background</h2><ul>
@@ -304,7 +306,7 @@ line-<span class="string">hight:</span>基线到基线的距离
 <h2 id="6、通配选择器(*)—无兼容问题">6、通配选择器(*)—无兼容问题</h2><p>态度：尽量不要用</p>
 <h2 id="7、伪类选择器—a链接的四种状态">7、伪类选择器—a链接的四种状态</h2><p>:link、:hover、:active、:visited<br>遵循lovehate法则，顺序最好不要打乱</p>
 <h2 id="8、伪元素选择器（css3）::">8、伪元素选择器（css3）::</h2><h1 id="继承："><span style="color:orange;font-size:24px;">继承：</span></h1><p>待续</p>
-<h1 id="单位："><span style="color:orange;font-size:24px;">单位：</span></h1><p>单位的值有px、%（继承父级）、em（倍数，根据父级）、rem（倍数，根据html标签，更加便捷计算和控制！r—&gt;root）、视窗单位（vh＝viewport/100、vw＝viewport/100、）</p>
+<h1 id="单位："><span style="color:orange;font-size:24px;">单位：</span></h1><p>单位有<br>    1、px<br>    2、%（百分比，根据父级的width、height来确定自身的宽高）<br>    3、em（倍数，根据父级的大小来确定自身的大小）<br>    4、rem（倍数，根据html标签层级的大小来确定自身的大小，更加便捷计算和控制！其中字母r是指root，根）<br>    5、视窗单位vh/vw（vh＝viewport/100、vw＝viewport/100）</p>
 <h1 id="BFC："><span style="color:orange;font-size:24px;">BFC：</span></h1><p>FC：Formatting Content.格式化上下文<br>BFC：Block Formatting Content.块级格式化上下文<br>IFC：Inline Formatting Content.行级格式化上下文</p>
 <p><span style="color:red;font-size:24px;">BFC的生成条件：(此处我也很迷糊！！！)</span><br>1、float值不为none<br>2、overflow值不为visible<br>3、display的值为inline-block、table-cell、table-caption<br>4、position的值是absolute、fixed<br><span style="color:red;font-size:24px;">BFC的约束规则：</span><br>1、生成BFC元素的子元素会一个接一个的放置。垂直方向上他们的起点是一个包含块的顶部，两个相邻子元素之间的垂直距离取决于元素的margin特性。在BFC中相邻的块级元素外边距会折叠。<br>2、生成BFC元素的子元素中，每一个子元素做外边距与包含块的左边界相接触，（对于从右到左的格式化，右外边距接触右边界），即使浮动元素也是如此（尽管子元素的内容区域会由于浮动而压缩），除非这个子元素也创建了一个新的BFC（如它自身也是一个浮动元素）。</p>
 <p></p>
@@ -316,6 +318,126 @@ line-<span class="string">hight:</span>基线到基线的距离
 <span class="number">5</span>、计算BFC的高度时，浮动子元素也参与计算
 <span class="number">6</span>、BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面元素，反之亦然
 </code></pre><p>在一个BFC容器里，里面任何一个子元素，不会对外部造成影响。</p>
+<p>再次认识font</p>
+<p><a href="http://www.cnblogs.com/fsjohnhuang/p/4310533.html#a32" target="_blank" rel="external">http://www.cnblogs.com/fsjohnhuang/p/4310533.html#a32</a></p>
+<ul>
+<li><p>盒模型</p>
+</li>
+<li><p>标准盒模型</p>
+</li>
+</ul>
+<p><img src="http://images.cnitblog.com/blog/347002/201409/121710262933336.jpg"></p>
+<p>外盒模型</p>
+<pre><code>元素空间宽度 = <span class="attribute">content</span> <span class="attribute">width</span> + <span class="attribute">padding</span> + <span class="attribute">border</span> + <span class="attribute">margin</span>的宽度
+
+元素空间高度 = <span class="attribute">content</span> <span class="attribute">width</span> + <span class="attribute">padding</span> + <span class="attribute">border</span> + <span class="attribute">margin</span>的高度
+</code></pre><p>  内盒模型</p>
+<pre><code>元素宽度 = <span class="attribute">content</span> <span class="attribute">height</span> + <span class="attribute">padding</span> + <span class="attribute">border</span>的宽度
+
+元素高度 = <span class="attribute">content</span> <span class="attribute">height</span> + <span class="attribute">padding</span> + <span class="attribute">border</span>的高度
+</code></pre><p>－ IE盒模型 当IE6~8处于怪异模式下就会使用IE盒子模型，否则将使用W3C标准盒子模型。</p>
+<p><img src="http://images.cnitblog.com/blog/347002/201409/121710451993093.jpg"></p>
+<p>外盒模型</p>
+<pre><code>元素空间宽度 = <span class="attribute">content</span> <span class="attribute">width</span> + <span class="attribute">margin</span>的宽度
+
+元素空间高度 = <span class="attribute">content</span> <span class="attribute">height</span> + <span class="attribute">margin</span>的高度
+</code></pre><p>内盒模型</p>
+<pre><code>元素宽度 = <span class="attribute">content</span> <span class="attribute">width</span>
+
+元素高度 = <span class="attribute">content</span> <span class="attribute">height</span>
+</code></pre><p>－box-sizing 启动IE盒子模型，IE8+，需要特定的环境</p>
+<p>box-sizing有三个值，默认是content-box（表示元素使用W3C盒子模型），而border-box（表示元素使用IE盒子模型），inherit（从父元素上继承）</p>
+<p>－float 浮动 </p>
+<p>具有包裹性 本意作用是做文字环绕 float布局只是歪打正着的产物</p>
+<ul>
+<li>清除浮动</li>
+</ul>
+<p>－使用带clear属性的空元素</p>
+<p>－使用CSS的overflow属性 给浮动元素的容器添加overflow:hidden;该方法不够通用<br>或overflow:auto;可以清除浮动，另外在 IE6 中还需要触发 hasLayout ，例如为父元素设置容器宽高或设置 zoom:1。</p>
+<p>在添加overflow属性后，浮动元素又回到了容器层，把容器高度撑起，达到了清理浮动的效果。</p>
+<p>－给浮动的元素的容器添加浮动</p>
+<p>给浮动元素的容器也添加上浮动属性即可清除内部浮动，但是这样会使其整体浮动，影响布局，不推荐使用。</p>
+<p>-使用邻接元素处理 给浮动元素后面的元素添加clear属性。</p>
+<p>－使用CSS的:after伪元素 结合 zoom</p>
+<p>结合 :after 伪元素（注意这不是伪类，而是伪元素，代表一个元素之后最近的元素）和 IEhack ，可以完美兼容当前主流的各大浏览器，这里的 IEhack 指的是触发 hasLayout。</p>
+<p>给浮动元素的父级容器添加一个clearfix的class，然后给这个class添加一个:after伪元素实现元素末尾添加一个看不见的块元素（Block element）清理浮动。</p>
+<pre><code><span class="class">.clearfix</span><span class="pseudo">:after</span>{
+      <span class="attribute">content</span><span class="value">: <span class="string">"."</span>;</span> 
+      <span class="attribute">display</span><span class="value">: block;</span> 
+      <span class="attribute">height</span><span class="value">: <span class="number">0</span>;</span> &lt;!--<span class="attribute">line-height</span><span class="value">:<span class="number">0</span>--&gt;
+      /* 隐藏这个after的 */
+      clear: both;</span> 
+      <span class="attribute">visibility</span><span class="value">: hidden;</span>  
+ }
+
+<span class="class">.clearfix</span> {
+      <span class="comment">/* 触发 hasLayout */</span> 
+      zoom<span class="value">: <span class="number">1</span>;</span> 
+}
+</code></pre><p><span style="color:red;font-size=24px;">老古董！！！</span></p>
+<ul>
+<li>IE hack  有IE就有hack  hack主要是针对IE浏览器，解决兼容性</li>
+</ul>
+<p>所有 IE{property:value\9;}<br>大于或等于 IE 8{property:value\0;}<br>小于或等于 IE 7{*property:value;}<br>.IE 8/9{property:value\0;}<br>.IE 9{property:value\9\0;}<br>.IE 7{+property:value;}<br>.IE 6{_property:value;}（经典的BUG：双倍margin—解决方法：zoom）<br>非 IE{property//:value;}</p>
+<pre><code><span class="class">.box</span>{
+    <span class="attribute">color</span>:red;
+    *<span class="attribute">color</span>:green;<span class="comment">//&lt;=IE7</span>
+    <span class="attribute">_color</span>:blue;<span class="comment">//IE6</span>
+}
+</code></pre><p>－ zoom 定义缩放比例。不允许负值 有兼容问题 主要用于IE67浏览器 触发haslayout 达到清除浮动等功能<br>在现代浏览器作用是放大！</p>
+<p>zoom:1</p>
+<pre><code><span class="class">.box</span>{
+    <span class="attribute">width</span>:<span class="number">200px</span>;
+    <span class="attribute">height</span>:<span class="number">200px</span>;
+    <span class="attribute">background</span>:blue;
+    <span class="attribute">border</span>:<span class="number">10px</span> solid red;
+    <span class="attribute">padding</span>:<span class="number">10px</span>;
+    <span class="attribute">zoom</span>:<span class="number">2</span>;<span class="comment">//1是原始比例，所有的包括宽高边框字体padding等都放大2倍</span>
+}
+</code></pre><p>－ 垂直居中</p>
+<p>－ 使用绝对定位垂直居中</p>
+<p>兼容性最好 absolute结合margin 需要知道尺寸</p>
+<p><a href="http://www.cnblogs.com/dojo-lzz/p/4419596.html" target="_blank" rel="external">http://www.cnblogs.com/dojo-lzz/p/4419596.html</a></p>
+<p>-自动换行 </p>
+<p>word-wrap 是控制换行的</p>
+<p>break-word 是将强制换行 </p>
+<p>word-break 表明是否断开单词换行 面对长度较长单词</p>
+<p>break-all 允许断开单词换行</p>
+<p>white-space</p>
+<p>pre :空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签</pre></p>
+<p>nowrap: 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止</p>
+<p>pre-wrap: 保留空白符序列，但是正常地进行换行</p>
+<p>当文本溢出包含元素时发生的事情</p>
+<ul>
+<li>text-overflow: clip|ellipsis|string; </li>
+</ul>
+<p>clip默认值 超出裁剪<br>ellipsis 超出显示…</p>
+<p>－单行文本溢出显示省略号(…)</p>
+<pre><code><span class="attribute">width</span>:<span class="number">200px</span>;<span class="comment">//移动端可以不加单位</span>
+<span class="attribute">overflow</span>: hidden;
+<span class="attribute">text-overflow</span>:ellipsis;
+<span class="attribute">white-space</span>: nowrap; <span class="comment">//不换行</span>
+</code></pre><p>部分浏览器 需要带上width</p>
+<p>－多行文本溢出显示省略号(…) 仅支持webkit内核浏览器 移动端（IE10以下不支持）</p>
+<pre><code><span class="attribute">display</span>: -webkit-box; <span class="comment">//将对象作为弹性伸缩盒子模型显示</span>
+<span class="attribute">-webkit-box-orient</span>: vertical; <span class="comment">//伸缩盒对象的子元素的排列方式</span>
+<span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>; <span class="comment">//用来限制在一个块元素显示的文本的行数</span>
+<span class="attribute">overflow</span>: hidden;
+</code></pre><p>也可以利用 after</p>
+<pre><code><span class="tag">p</span><span class="rules">{<span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">max-height</span>:<span class="value"> <span class="number">40px</span></span></span>;<span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;}</span>
+<span class="tag">p</span><span class="pseudo">::after</span><span class="rules">{<span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"..."</span></span></span>; <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>; <span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">40px</span></span></span>;</span>
+</code></pre><p>-Opacity属性用来设置一个元素的透明度，取值范围是0~1之间，不可为负值。opacity取值为1是完全不透明，取值为0是完全透明。IE不能识别</p>
+<pre><code><span class="string">opacity:</span><span class="number">0.5</span>;
+<span class="string">filter:</span>alpha(opacity=<span class="number">50</span>);<span class="comment">/* IE 4+ */</span>  ||
+<span class="string">filter:</span><span class="string">progid:</span>DXImageTransform.Microsoft.Alpha(Opacity=<span class="number">50</span>);  
+-ms-<span class="string">filter:</span><span class="string">"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"</span>;  <span class="comment">/*i e 8+*/</span> 
+</code></pre><p>－Overflow </p>
+<p>overflow属性有四个值：visible (默认), </p>
+<p>hidden 将所有超出盒子的所有内容都给隐藏掉。</p>
+<p>scroll 始终出现滚动条</p>
+<p>auto 现代浏览器的默认属性 有超出内容 才有滚动条</p>
+<p>overflow-x</p>
+<p>overflow-y </p>
 
       
     </div>
