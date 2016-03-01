@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/2 | 逸仙于誓</title>
+  <title>html知识点回顾--表单 | 逸仙于誓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IT之路">
-<meta property="og:type" content="website">
-<meta property="og:title" content="逸仙于誓">
-<meta property="og:url" content="http://yoursite.com/archives/2016/02/index.html">
+  <meta name="description" content="表单个人对表单的理解并不深透，只能讲一些表面上的东西了。。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html知识点回顾--表单">
+<meta property="og:url" content="http://yoursite.com/2016/03/01/html知识点回顾-表单/index.html">
 <meta property="og:site_name" content="逸仙于誓">
-<meta property="og:description" content="IT之路">
+<meta property="og:description" content="表单个人对表单的理解并不深透，只能讲一些表面上的东西了。。。">
+<meta property="og:updated_time" content="2016-03-01T08:35:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逸仙于誓">
-<meta name="twitter:description" content="IT之路">
+<meta name="twitter:title" content="html知识点回顾--表单">
+<meta name="twitter:description" content="表单个人对表单的理解并不深透，只能讲一些表面上的东西了。。。">
   
     <link rel="alternative" href="/atom.xml" title="逸仙于誓" type="application/atom+xml">
   
@@ -198,103 +199,138 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-html知识点回顾-表单" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/03/01/html知识点回顾-表单/" class="article-date">
+  	<time datetime="2016-03-01T08:33:25.000Z" itemprop="datePublished">2016-03-01</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      html知识点回顾--表单
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/26/css知识点回顾/" class="archive-article-date">
-  	<time datetime="2016-02-26T01:28:53.000Z" itemprop="datePublished">2月 26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/26/css知识点回顾/">css知识点回顾</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="表单">表单</h2><p>个人对表单的理解并不深透，只能讲一些表面上的东西了。。。<br><a id="more"></a><br>form有两个属性，至于有什么用，我还木有弄明白。。。</p>
+<pre><code>- action：输入的数据被传送到的地址,比如一个<span class="type">PHP</span>页面(test.php)。
+- <span class="keyword">method</span>：数据传送的方式（get/post）
+</code></pre><blockquote>
+<p>input有很多类型。type属性来确定是哪一种类型。</p>
+</blockquote>
+<p><span style="font-size:24px;">单标签：</span><br>    ① text:文本输入框，value值表示默认显示的文字内容<br>    ② password:密码输入框，value值表示默认显示的密码值；name 为文本框命名，以备后台程序ASP 、PHP使用<br>    ③ radio:单选框<br>    ④ checkbox:复选框</p>
+<ul>
+<li><p>③和④有共同的属性name,value,checked。value 提交数据到服务器的值（后台程序PHP使用）；name 为控件命名，以备后台程序ASP、PHP使用当设置checked 或 checked=”checked”时，该选项被默认选中。<br><span style="color:red;font-size:24px;">注意：</span>同一组的单选按钮，name取值一定要一致，这样同一组的单选按钮才可以起到单选的作用<br>  ⑤ submit:提交按钮<br>  ⑥ reset:重置按钮<br>  ⑦ hidden:隐藏，将数据存放到value中<br>  ⑧ button:按钮，按钮上的值可以通过value来改变<br>  ⑨ file:文件上传；<input type="file"> 它是常用的上传标签，但是它长得又丑、浏览的字样不能换，我们一般会用让它隐藏，点其他的标签（图片等）来时实现选择文件上传功能。<br><span style="font-size:24px;">双标签：</span><br>  ① textarea:文本域；这个类型有一个不好的，就是可以随意改变大小。可以通过添加如下两个样式禁用拖动，固定大小：<br>  1、彻底禁用拖动（推荐）</p>
+<pre><code><span class="attribute">resize</span>:none;
+</code></pre><p>  2、只是固定大小，右下角的拖动图标仍在</p>
+<pre><code><span class="attribute">width</span>: <span class="string">200px;</span>
+<span class="attribute">height</span>: <span class="string">100px;</span>
+<span class="attribute">max-width</span>: <span class="string">200px;</span>
+<span class="attribute">max-height</span>: <span class="string">100px;</span>
+</code></pre><p>  textarea的cols属性值规定多行输入域的列数。同样，rows规定多行输入域的行数。<br>  ② select:下拉框，它是一个组合标签。</p>
+</li>
+</ul>
+<pre><code>    &lt;select&gt;
+        &lt;<span class="keyword">option</span>&gt;&lt;/<span class="keyword">option</span>&gt;<span class="comment">//下拉选项</span>
+        &lt;<span class="keyword">option</span>&gt;&lt;/<span class="keyword">option</span>&gt;<span class="comment">//下拉选项</span>
+        &lt;<span class="keyword">option</span>&gt;&lt;/<span class="keyword">option</span>&gt;<span class="comment">//下拉选项</span>
+    &lt;/select&gt;
+select的multiple属性可以实现多选功能，就是样式变丑了。。。 
+</code></pre>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/01/如何使DIV垂直居中/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何使DIV垂直居中</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/25/html知识点回顾--表格/" class="archive-article-date">
-  	<time datetime="2016-02-25T13:16:56.000Z" itemprop="datePublished">2月 25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/25/html知识点回顾--表格/">html知识点回顾（二）</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/02/25/html知识点回顾--基本结构/" class="archive-article-date">
-  	<time datetime="2016-02-25T07:44:49.000Z" itemprop="datePublished">2月 25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/02/25/html知识点回顾--基本结构/">html知识点回顾--html基本结构</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="html知识点回顾-表单" data-title="html知识点回顾--表单" data-url="http://yoursite.com/2016/03/01/html知识点回顾-表单/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http://wj1213180604.github.io/'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 
 </div>
       <footer id="footer">
@@ -320,8 +356,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
