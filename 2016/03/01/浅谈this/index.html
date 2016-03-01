@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/01/浅谈this/index.html">
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指向调用函数的那个对象。">
-<meta property="og:updated_time" content="2016-03-01T13:23:17.000Z">
+<meta property="og:updated_time" content="2016-03-01T13:26:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈this">
 <meta name="twitter:description" content="this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指向调用函数的那个对象。">
@@ -277,33 +277,18 @@ obj.fn();
 <span class="built_in">console</span>.log(obj.x);<span class="comment">//100</span>
 </code></pre><p><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">4. apply() call()</a><br>咱们先回顾一下这两个方法的定义吧！<br><span style="color:red">call方法: </span><br>语法：call(thisObj，Object)<br>定义：调用一个对象的一个方法，以另一个对象替换当前对象。<br>说明：<br>call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。<br>如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj。 </p>
 <p><span style="color:red">apply方法：</span><br>语法：apply(thisObj，[argArray])<br>定义：应用某一对象的一个方法，用另一个对象替换当前对象。<br>说明：<br>如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。<br>如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数。</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>) </span>{
-    <span class="keyword">this</span>.name = name;
-    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);
-    };
+<pre><code><span class="keyword">var</span> x = <span class="number">0</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>{
+    alert(<span class="keyword">this</span>.x);
 }
+<span class="keyword">var</span> o={};
+o.x = <span class="number">1</span>;
+o.m = test;
+o.m.apply(); <span class="comment">//0</span>
+</code></pre><p>apply()的参数为空时，默认调用全局对象。因此，这时的运行结果为0，证明this指的是全局对象。<br>如果把最后一行代码修改为</p>
+<pre><code>o.m.apply<span class="comment">(o)</span>; <span class="comment">//1</span>
+</code></pre><p>运行结果就变成了1，证明了这时this代表的是对象o。</p>
 
-<span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>) </span>{
-    Animal.call(<span class="keyword">this</span>, name);
-}
-Cat.prototype = <span class="keyword">new</span> Animal();
-
-<span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name</span>) </span>{
-    Animal.apply(<span class="keyword">this</span>, name);
-}
-Dog.prototype = <span class="keyword">new</span> Animal();
-
-<span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">"Black Cat"</span>); <span class="comment">//call必须是object</span>
-
-<span class="keyword">var</span> dog = <span class="keyword">new</span> Dog([<span class="string">"Black Dog"</span>]); <span class="comment">//apply必须是array</span>
-
-cat.showName();
-dog.showName();
-
-<span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal);
-<span class="built_in">console</span>.log(dog <span class="keyword">instanceof</span> Animal);
-</code></pre>
       
     </div>
     
