@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JS的组成和引用方式 | 逸仙于誓</title>
+  <title>JS的数据类型 | 逸仙于誓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="javascript是浏览器脚本语言。JS是单线程语言，一次只能处理一个事件，这也是它最大的特点了。JavaScript的主要用途是与用户互动，以及操作DOM。负责内容、样式、行为分离环节中的行为部分。">
+  <meta name="description" content="JS有两种数据类型：基本类型值和引用类型值。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS的组成和引用方式">
-<meta property="og:url" content="http://yoursite.com/2016/03/01/JS的组成和引用方式/index.html">
+<meta property="og:title" content="JS的数据类型">
+<meta property="og:url" content="http://yoursite.com/2016/03/01/JS的数据类型/index.html">
 <meta property="og:site_name" content="逸仙于誓">
-<meta property="og:description" content="javascript是浏览器脚本语言。JS是单线程语言，一次只能处理一个事件，这也是它最大的特点了。JavaScript的主要用途是与用户互动，以及操作DOM。负责内容、样式、行为分离环节中的行为部分。">
-<meta property="og:updated_time" content="2016-03-01T09:55:57.000Z">
+<meta property="og:description" content="JS有两种数据类型：基本类型值和引用类型值。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/94752-7c5eb2f781cbd6f6.png">
+<meta property="og:updated_time" content="2016-03-01T11:34:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS的组成和引用方式">
-<meta name="twitter:description" content="javascript是浏览器脚本语言。JS是单线程语言，一次只能处理一个事件，这也是它最大的特点了。JavaScript的主要用途是与用户互动，以及操作DOM。负责内容、样式、行为分离环节中的行为部分。">
+<meta name="twitter:title" content="JS的数据类型">
+<meta name="twitter:description" content="JS有两种数据类型：基本类型值和引用类型值。">
   
     <link rel="alternative" href="/atom.xml" title="逸仙于誓" type="application/atom+xml">
   
@@ -199,11 +200,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-JS的组成和引用方式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JS的数据类型" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/01/JS的组成和引用方式/" class="article-date">
-  	<time datetime="2016-03-01T09:20:07.000Z" itemprop="datePublished">2016-03-01</time>
+      <a href="/2016/03/01/JS的数据类型/" class="article-date">
+  	<time datetime="2016-03-01T09:58:05.000Z" itemprop="datePublished">2016-03-01</time>
 </a>
     </div>
   
@@ -216,7 +217,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JS的组成和引用方式
+      JS的数据类型
     </h1>
   
 
@@ -232,39 +233,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p style="padding:0;">javascript是<a href="javascript:;" target="_blank" rel="external">浏览器脚本语言</a>。JS是<a href="javascript:;" target="_blank" rel="external">单线程语言</a>，一次只能处理一个事件，这也是它最大的特点了。JavaScript的主要用途是与用户互动，以及操作DOM。负责内容、样式、行为分离环节中的行为部分。</p><a id="more"></a><br><a href="javascript:;" style="color:red;font-size:24px;" target="_blank" rel="external">1、JS的组成</a><p></p>
+        <p>JS有两种数据类型：<a href="#JS1">基本类型值</a>和<a href="#JS2">引用类型值</a>。<br><a id="more"></a><br>一、<a href="javascript:;" id="JS1" target="_blank" rel="external">基本类型值</a>:<br>基本类型值指的是保存在栈内存中的简单数据段。</p>
 <ul>
-<li><a href="javascript:;" target="_blank" rel="external">ECMAScript</a>:ECMAScript是JS的核心，几乎没有兼容问题，可以担任解析器的角色，处理我们的逻辑代码 。</li>
-<li><a href="javascript:;" target="_blank" rel="external">DOM</a>:DOM全称document object model，是文档对象模型，定义了访问和操作HTML文档的标准，其中文档指的就是网页，把网页变成一个JS可以操作的对象；给了JS可以操作页面元素的能力；有一些兼容性问题；</li>
-<li><a href="javascript:;" target="_blank" rel="external">BOM</a>:BOM全称browser object model，是浏览器对象模型，它给了JS操作浏览器的能力，核心对象是window，有许多兼容性问题。</li>
+<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Undefined</a><br>Undefined出现的场景有一下几种：</li>
 </ul>
-<p><a href="javascript:;" style="color:red;font-size:24px;" target="_blank" rel="external">2、JS的引用方式</a></p>
+<pre><code><span class="number">1</span> 在使用<span class="keyword">var</span>声明变量，但未对其加以初始化时，这个变量的类型就是<span class="literal">undefined</span>，且其默认初始化值为<span class="literal">undefined</span>
+<span class="number">2</span> 对未声明与初始化的变量，直接使用，那么这个变量的类型也是<span class="literal">undefined</span>，但是没有默认初始化值。
+<span class="number">3</span> <span class="keyword">type</span> test;<span class="comment">//undefined  直接调用就会报错</span>
+<span class="number">4</span> 函数没有<span class="keyword">return</span>时，默认返回Undefined
+</code></pre><p><hr></p>
 <ul>
-<li>外部文件script方式</li>
+<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Null</a><br>  null类型的默认值是null，表示一个空对象指针。<br>  如果定义的变量准备在将来用于保存对象，那么就该将该变量初始化为null。<br>  也可以用来清空事件或者清除定时器。<hr>    </li>
+<li><p><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Boolean</a></p>
+<p>  Boolean类型有两个值：true和false。Boolean()方法 可以转换其他数据类型为布尔值。<br>  具体的不同类型的转换，可以看下图：</p>
+</li>
 </ul>
-<pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"JS的路径"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span> 
-</code></pre><ul>
-<li>内部script写入</li>
-</ul>
-<pre><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript">
-    <span class="comment">//JS区域</span>
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</code></pre><p>理论上来说js标签放在html文档的任何位置都可以，规范起见，推荐放到body结束标签的末尾，包含到body标签内：</p>
-<pre><code><span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="comment">&lt;!-- 这里是其他的HTML标签 --&gt;</span>
-    <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="undefined"> 这里是代码 </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-</code></pre><p>这样处理的好处是无需担心因页面未完成加载，造成DOM节点获取不到，使脚本报错的问题，而且能避免因脚本运行缓慢造成页面卡死的问题。另外，Yahoo的前端优化指南里就有这一条。</p>
-<p><a href="javascript:;" style="color:red;font-size:24px;" target="_blank" rel="external">3、JS的注释方式</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/94752-7c5eb2f781cbd6f6.png"></p>
 <ul>
-<li>单行注释</li>
+<li><p>Number</p>
+<p>  整数 可以通过10进制 8进制 16进制表示</p>
+<p>  浮点数 该数值必须包含一个小数点，小数点后面必须有一位数字，如果小数点后只有0，自动转换成整数</p>
+<p>  浮点数占据的空间内存是内存的两倍，极大极小的数字会用e科学表示法。</p>
+</li>
+<li><p>NaN </p>
+<p>  1、即非数值，是一个特殊的值，这个数值用于表示一个本来要返回数值的操作数，未返回数值的情况。比如任何数值除以0，本是不符合规范的，js里，这样的操作返回NaN（但是实际上，只有0除以0时返回NaN，其他则无穷值）。<br>  2、NaN有两个不同寻常的特点：任何涉及NaN的操作都会返回NaN，NaN值与任何值都不相等，包括本身。<br>  3、isNaN()函数，这个函数可以判断，传递的参数是否“不是数值”这里涉及数值转换的问题，例如“10”这个字符串就可以转换为10，但是“blue”这个字符串则无法转换为数字，所以isNaN(“blue”)==true</p>
+<p>  Number() 可以    任何类型</p>
+<p>  parseInt()  parseFloat() 只用于字符串类型</p>
+</li>
 </ul>
-<pre><code><span class="comment">//</span>
-</code></pre><ul>
-<li>多行注释</li>
+<ul>
+<li>string </li>
 </ul>
-<pre><code>/<span class="keyword">*</span>....<span class="keyword">*</span>/
-</code></pre><p>多多运用注释可以大大提高代码的可维护性、可读性。还可以有意想不到的惊喜哦！</p>
+<pre><code><span class="string">''</span> <span class="string">""</span>单引号 双引号
+
+基本类型的特点：
+
+基本类型的值是不可变得
+</code></pre><ol>
+<li>基本类型值：指的是保存在栈内存中的简单数据段；</li>
+<li>引用类型值：指的是那些保存在堆内存中的对象，意思是，变量中保存的实际上只是一个指针，这个指针执行内存中的另一个位置，由该位置保存对象；</li>
+</ol>
 
       
     </div>
@@ -274,18 +282,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/01/JS的数据类型/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JS的数据类型
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/01/html知识点回顾-表单/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">html知识点回顾--表单</div>
+    <a href="/2016/03/01/JS的组成和引用方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS的组成和引用方式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -314,7 +313,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JS的组成和引用方式" data-title="JS的组成和引用方式" data-url="http://yoursite.com/2016/03/01/JS的组成和引用方式/"></div>
+	<div class="ds-thread" data-thread-key="JS的数据类型" data-title="JS的数据类型" data-url="http://yoursite.com/2016/03/01/JS的数据类型/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
