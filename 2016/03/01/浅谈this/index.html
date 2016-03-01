@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JS的数据类型 | 逸仙于誓</title>
+  <title>浅谈this | 逸仙于誓</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS有两种数据类型：基本类型值和引用类型值。">
+  <meta name="description" content="this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指向调用函数的那个对象。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS的数据类型">
-<meta property="og:url" content="http://yoursite.com/2016/03/01/JS的数据类型/index.html">
+<meta property="og:title" content="浅谈this">
+<meta property="og:url" content="http://yoursite.com/2016/03/01/浅谈this/index.html">
 <meta property="og:site_name" content="逸仙于誓">
-<meta property="og:description" content="JS有两种数据类型：基本类型值和引用类型值。">
-<meta property="og:image" content="http://7xoo6z.com1.z0.glb.clouddn.com/94752-7c5eb2f781cbd6f6.png">
-<meta property="og:updated_time" content="2016-03-01T12:43:26.000Z">
+<meta property="og:description" content="this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指向调用函数的那个对象。">
+<meta property="og:updated_time" content="2016-03-01T13:23:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS的数据类型">
-<meta name="twitter:description" content="JS有两种数据类型：基本类型值和引用类型值。">
+<meta name="twitter:title" content="浅谈this">
+<meta name="twitter:description" content="this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指向调用函数的那个对象。">
   
     <link rel="alternative" href="/atom.xml" title="逸仙于誓" type="application/atom+xml">
   
@@ -200,11 +199,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-JS的数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-浅谈this" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/01/JS的数据类型/" class="article-date">
-  	<time datetime="2016-03-01T09:58:05.000Z" itemprop="datePublished">2016-03-01</time>
+      <a href="/2016/03/01/浅谈this/" class="article-date">
+  	<time datetime="2016-03-01T12:37:30.000Z" itemprop="datePublished">2016-03-01</time>
 </a>
     </div>
   
@@ -217,7 +216,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JS的数据类型
+      浅谈this
     </h1>
   
 
@@ -233,25 +232,78 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JS有两种数据类型：<a href="#JS1">基本类型值</a>和<a href="#JS2">引用类型值</a>。<br><a id="more"></a><br>一、<a href="javascript:;" id="JS1" style="font-size:30px;" target="_blank" rel="external">基本类型值</a>:<br>基本类型值指的是保存在栈内存中的简单数据段。基本类型的特点是基本类型的值是不可变的。</p>
-<ul>
-<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Undefined</a><br>Undefined出现的场景有一下几种：</li>
-</ul>
-<pre><code><span class="number">1</span> 在使用<span class="keyword">var</span>声明变量，但未对其加以初始化时，这个变量的类型就是<span class="literal">undefined</span>，且其默认初始化值为<span class="literal">undefined</span>
-<span class="number">2</span> 对未声明与初始化的变量，直接使用，那么这个变量的类型也是<span class="literal">undefined</span>，但是没有默认初始化值。
-<span class="number">3</span> <span class="keyword">type</span> test;<span class="comment">//undefined  直接调用就会报错</span>
-<span class="number">4</span> 函数没有<span class="keyword">return</span>时，默认返回Undefined
-</code></pre><p><hr></p>
-<ul>
-<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Null</a><br>  null类型的默认值是null，表示一个空对象指针。<br>  如果定义的变量准备在将来用于保存对象，那么就该将该变量初始化为null。<br>  也可以用来清空事件或者清除定时器。<br>  <span style="color:red;">typeof(Null)后是object</span><hr>    </li>
-<li><p><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Boolean</a></p>
-<p>  Boolean类型有两个值：true和false。Boolean()方法 可以转换其他数据类型为布尔值。<br>  具体的不同类型的转换，可以看下图：<br><img src="http://7xoo6z.com1.z0.glb.clouddn.com/94752-7c5eb2f781cbd6f6.png"></p>
-<hr></li>
-<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Number</a><br>  Number可以分为整数和浮点数：<br>  <span style="color:red;">整数:</span> 可以通过10进制 8进制 16进制表示<br>  <span style="color:red;">浮点数:</span> 该数值必须包含一个小数点，小数点后面必须有一位数字，<span style="color:orange;">如果小数点后只有0，自动转换成整数</span>。浮点数占据的空间内存是内存的两倍，极大极小的数字会用e科学表示法。<hr>    </li>
-<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">NaN</a><br>  1、NaN即非数值，是一个特殊的值，这个数值用于表示一个本来要返回数值的操作数，未返回数值的情况。比如任何数值除以0，本是不符合规范的，js里，这样的操作返回NaN（但是实际上，只有0除以0时返回NaN，其他则无穷值）。<br>  2、NaN有两个不同寻常的特点：任何涉及NaN的操作都会返回NaN，<span style="color:orange;">NaN值与任何值都不相等，包括本身</span>。<br>  3、isNaN()函数，这个函数可以判断，传递的参数是否“不是数值”这里涉及数值转换的问题，例如“10”这个字符串就可以转换为10，但是“blue”这个字符串则无法转换为数字，所以isNaN(“blue”)==true<br><span style="color:orange;font-size:20px;">Number()函数，这个函数可以将的<span style="color:red;">除了非纯数字字符串和undefined以外的</span>任何类型转变为number类型。</span>非纯数字字符串和undefined转化为NAN。<hr></li>
-<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">string</a><br>  string以’’或””引起来的一串字符。函数parseInt()、parseFloat()只用于字符串类型<br><hr><br>二、<a href="javascript:;" id="JS2" style="font-size:30px;" target="_blank" rel="external">引用类型值</a>:<br>引用类型值是指的是那些保存在堆内存中的对象。意思是，变量中保存的实际上只是一个指针，这个指针执行内存中的另一个位置，由该位置保存对象。<br>Array、function、object都是复杂的数据类型。<br><span style="color:orange;font-size:20px;">typeof只能检测基础数据类型。</span><br><a href="http://wj1213180604.github.io/2015/12/01/JS%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" target="_blank" rel="external">http://wj1213180604.github.io/2015/12/01/JS%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</a></li>
-</ul>
+        <p>this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。<br>随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是<span style="color:red;">this指向调用函数的那个对象</span>。<br><a id="more"></a><br><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external"> 1.普通函数调用时，在全局作用域下，this指向的是windows对象。</a></p>
+<pre><code><span class="comment">//函数声明</span>
+<span class="function"><span class="keyword">function</span> <span class="title">text1</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//window</span>
+    <span class="keyword">this</span>.a = <span class="number">10</span>;
+}
+text1();
+<span class="built_in">console</span>.log(a);<span class="comment">//10</span>
+<span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//window</span>
+<span class="comment">//匿名函数</span>
+(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//window</span>
+    <span class="keyword">this</span>.a = <span class="number">30</span>;
+})();
+<span class="built_in">console</span>.log(a);<span class="comment">//10</span>
+<span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//window</span>
+<span class="comment">//函数表达式</span>
+<span class="keyword">var</span> text2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//window</span>
+    <span class="keyword">this</span>.a = <span class="number">20</span>;
+}
+text2();
+<span class="built_in">console</span>.log(a);<span class="comment">//20</span>
+</code></pre><p><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">2. 作为构造函数调用：new关键字构造的对象，this指向创建该对象的函数</a></p>
+<pre><code><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//fn{}</span>
+    <span class="keyword">this</span>.x = <span class="number">10</span>;
+    <span class="keyword">this</span>.y = <span class="number">20</span>;
+    <span class="keyword">return</span> <span class="keyword">this</span>.x;
+}
+<span class="keyword">var</span> fn2 = <span class="keyword">new</span> fn();
+<span class="built_in">console</span>.log(fn2.x);<span class="comment">//10</span>
+</code></pre><p><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">3. 作为对象方法的调用：this当前所在函数是对象的属性时，this指向该对象。</a></p>
+<pre><code><span class="keyword">var</span> obj = {
+    x: <span class="number">10</span>,
+    y: <span class="number">20</span>,
+    fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>);<span class="comment">//obj</span>
+        <span class="keyword">this</span>.x = <span class="number">100</span>;
+    }
+}
+obj.fn();
+<span class="built_in">console</span>.log(obj.x);<span class="comment">//100</span>
+</code></pre><p><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">4. apply() call()</a><br>咱们先回顾一下这两个方法的定义吧！<br><span style="color:red">call方法: </span><br>语法：call(thisObj，Object)<br>定义：调用一个对象的一个方法，以另一个对象替换当前对象。<br>说明：<br>call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。<br>如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj。 </p>
+<p><span style="color:red">apply方法：</span><br>语法：apply(thisObj，[argArray])<br>定义：应用某一对象的一个方法，用另一个对象替换当前对象。<br>说明：<br>如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。<br>如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数。</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>) </span>{
+    <span class="keyword">this</span>.name = name;
+    <span class="keyword">this</span>.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);
+    };
+}
 
+<span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>) </span>{
+    Animal.call(<span class="keyword">this</span>, name);
+}
+Cat.prototype = <span class="keyword">new</span> Animal();
+
+<span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name</span>) </span>{
+    Animal.apply(<span class="keyword">this</span>, name);
+}
+Dog.prototype = <span class="keyword">new</span> Animal();
+
+<span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">"Black Cat"</span>); <span class="comment">//call必须是object</span>
+
+<span class="keyword">var</span> dog = <span class="keyword">new</span> Dog([<span class="string">"Black Dog"</span>]); <span class="comment">//apply必须是array</span>
+
+cat.showName();
+dog.showName();
+
+<span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal);
+<span class="built_in">console</span>.log(dog <span class="keyword">instanceof</span> Animal);
+</code></pre>
       
     </div>
     
@@ -260,18 +312,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/01/浅谈this/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          浅谈this
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/01/JS的组成和引用方式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JS的组成和引用方式</div>
+    <a href="/2016/03/01/JS的数据类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS的数据类型</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -300,7 +343,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JS的数据类型" data-title="JS的数据类型" data-url="http://yoursite.com/2016/03/01/JS的数据类型/"></div>
+	<div class="ds-thread" data-thread-key="浅谈this" data-title="浅谈this" data-url="http://yoursite.com/2016/03/01/浅谈this/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
