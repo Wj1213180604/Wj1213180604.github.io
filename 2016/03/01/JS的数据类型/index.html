@@ -11,8 +11,8 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/01/JS的数据类型/index.html">
 <meta property="og:site_name" content="逸仙于誓">
 <meta property="og:description" content="JS有两种数据类型：基本类型值和引用类型值。">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/94752-7c5eb2f781cbd6f6.png">
-<meta property="og:updated_time" content="2016-03-01T11:34:55.000Z">
+<meta property="og:image" content="http://7xoo6z.com1.z0.glb.clouddn.com/94752-7c5eb2f781cbd6f6.png">
+<meta property="og:updated_time" content="2016-03-01T12:19:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS的数据类型">
 <meta name="twitter:description" content="JS有两种数据类型：基本类型值和引用类型值。">
@@ -233,7 +233,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JS有两种数据类型：<a href="#JS1">基本类型值</a>和<a href="#JS2">引用类型值</a>。<br><a id="more"></a><br>一、<a href="javascript:;" id="JS1" target="_blank" rel="external">基本类型值</a>:<br>基本类型值指的是保存在栈内存中的简单数据段。</p>
+        <p>JS有两种数据类型：<a href="#JS1">基本类型值</a>和<a href="#JS2">引用类型值</a>。<br><a id="more"></a><br>一、<a href="javascript:;" id="JS1" style="font-size:30px;" target="_blank" rel="external">基本类型值</a>:<br>基本类型值指的是保存在栈内存中的简单数据段。基本类型的特点是基本类型的值是不可变的。</p>
 <ul>
 <li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Undefined</a><br>Undefined出现的场景有一下几种：</li>
 </ul>
@@ -243,36 +243,14 @@
 <span class="number">4</span> 函数没有<span class="keyword">return</span>时，默认返回Undefined
 </code></pre><p><hr></p>
 <ul>
-<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Null</a><br>  null类型的默认值是null，表示一个空对象指针。<br>  如果定义的变量准备在将来用于保存对象，那么就该将该变量初始化为null。<br>  也可以用来清空事件或者清除定时器。<hr>    </li>
+<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Null</a><br>  null类型的默认值是null，表示一个空对象指针。<br>  如果定义的变量准备在将来用于保存对象，那么就该将该变量初始化为null。<br>  也可以用来清空事件或者清除定时器。<br>  <span style="color:red;">typeof(Null)后是object</span><hr>    </li>
 <li><p><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Boolean</a></p>
-<p>  Boolean类型有两个值：true和false。Boolean()方法 可以转换其他数据类型为布尔值。<br>  具体的不同类型的转换，可以看下图：</p>
-</li>
+<p>  Boolean类型有两个值：true和false。Boolean()方法 可以转换其他数据类型为布尔值。<br>  具体的不同类型的转换，可以看下图：<br><img src="http://7xoo6z.com1.z0.glb.clouddn.com/94752-7c5eb2f781cbd6f6.png"></p>
+<hr></li>
+<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">Number</a><br>  Number可以分为整数和浮点数：<br>  <span style="color:red;">整数:</span> 可以通过10进制 8进制 16进制表示<br>  <span style="color:red;">浮点数:</span> 该数值必须包含一个小数点，小数点后面必须有一位数字，<span style="color:orange;">如果小数点后只有0，自动转换成整数</span>。浮点数占据的空间内存是内存的两倍，极大极小的数字会用e科学表示法。<hr>    </li>
+<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">NaN</a><br>  1、NaN即非数值，是一个特殊的值，这个数值用于表示一个本来要返回数值的操作数，未返回数值的情况。比如任何数值除以0，本是不符合规范的，js里，这样的操作返回NaN（但是实际上，只有0除以0时返回NaN，其他则无穷值）。<br>  2、NaN有两个不同寻常的特点：任何涉及NaN的操作都会返回NaN，<span style="color:orange;">NaN值与任何值都不相等，包括本身</span>。<br>  3、isNaN()函数，这个函数可以判断，传递的参数是否“不是数值”这里涉及数值转换的问题，例如“10”这个字符串就可以转换为10，但是“blue”这个字符串则无法转换为数字，所以isNaN(“blue”)==true<br><span style="color:orange;font-size:20px;">Number()函数，这个函数可以将的<span style="color:red;">除了非纯数字字符串和undefined以外的</span>任何类型转变为number类型。</span>非纯数字字符串和undefined转化为NAN。<hr></li>
+<li><a href="javascript:;" style="color:blue;font-size:24px;" target="_blank" rel="external">string</a><br>  string以’’或””引起来的一串字符。函数parseInt()、parseFloat()只用于字符串类型<br><hr><br>二、<a href="javascript:;" id="JS2" style="font-size:30px;" target="_blank" rel="external">引用类型值</a>:<br>引用类型值是指的是那些保存在堆内存中的对象。意思是，变量中保存的实际上只是一个指针，这个指针执行内存中的另一个位置，由该位置保存对象。<br>Array、function、object都是复杂的数据类型。<br><span style="color:orange;font-size:20px;">typeof只能检测基础数据类型。</span></li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/94752-7c5eb2f781cbd6f6.png"></p>
-<ul>
-<li><p>Number</p>
-<p>  整数 可以通过10进制 8进制 16进制表示</p>
-<p>  浮点数 该数值必须包含一个小数点，小数点后面必须有一位数字，如果小数点后只有0，自动转换成整数</p>
-<p>  浮点数占据的空间内存是内存的两倍，极大极小的数字会用e科学表示法。</p>
-</li>
-<li><p>NaN </p>
-<p>  1、即非数值，是一个特殊的值，这个数值用于表示一个本来要返回数值的操作数，未返回数值的情况。比如任何数值除以0，本是不符合规范的，js里，这样的操作返回NaN（但是实际上，只有0除以0时返回NaN，其他则无穷值）。<br>  2、NaN有两个不同寻常的特点：任何涉及NaN的操作都会返回NaN，NaN值与任何值都不相等，包括本身。<br>  3、isNaN()函数，这个函数可以判断，传递的参数是否“不是数值”这里涉及数值转换的问题，例如“10”这个字符串就可以转换为10，但是“blue”这个字符串则无法转换为数字，所以isNaN(“blue”)==true</p>
-<p>  Number() 可以    任何类型</p>
-<p>  parseInt()  parseFloat() 只用于字符串类型</p>
-</li>
-</ul>
-<ul>
-<li>string </li>
-</ul>
-<pre><code><span class="string">''</span> <span class="string">""</span>单引号 双引号
-
-基本类型的特点：
-
-基本类型的值是不可变得
-</code></pre><ol>
-<li>基本类型值：指的是保存在栈内存中的简单数据段；</li>
-<li>引用类型值：指的是那些保存在堆内存中的对象，意思是，变量中保存的实际上只是一个指针，这个指针执行内存中的另一个位置，由该位置保存对象；</li>
-</ol>
 
       
     </div>
